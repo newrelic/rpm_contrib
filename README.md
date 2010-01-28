@@ -23,12 +23,12 @@ other open source Ruby libraries.
 
 ## Further Information
 
-See http://newrlic.github.com/rpm for API documentation on the Agent.
+Refer to the [Agent API Documentation](http://newrelic.github.com/rpm).
 
-See http://support.newrelic.com/faqs for additional tips and documentation.
+See [the support site](http://support.newrelic.com/faqs) for additional tips and documentation.
 
 Contact support@newrelic.com for help.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2010 New Relic. See LICENSE for details.
