@@ -1,4 +1,4 @@
-module NewRelic::Agent::Instrumentation::DelayedJobInstrumentation
+module RPMContrib::Instrumentation::DelayedJobInstrumentation
   extend self
   Delayed::Job.class_eval do
     include NewRelic::Agent::Instrumentation::ControllerInstrumentation

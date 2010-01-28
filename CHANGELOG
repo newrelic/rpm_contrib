@@ -1,2 +1,7 @@
 * Version 1.0.0
-  - Initial Release
+
+  Initial Release:
+  - Camping
+  - Authlogic
+  - DelayedJob
+  - Paperclip
