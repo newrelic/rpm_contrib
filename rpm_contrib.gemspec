@@ -9,20 +9,27 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-01-20}
+  s.date = %q{2010-01-28}
   s.description = %q{      Community contributed instrumentation for various frameworks based on
       the New Relic Ruby monitoring gem newrelic_rpm.
 }
   s.email = %q{support@newrelic.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.files = [
-    "LICENSE",
-     "README.rdoc",
+    "CHANGELOG",
+     "LICENSE",
+     "README.md",
      "Rakefile",
      "lib/rpm_contrib.rb",
+     "lib/rpm_contrib/instrumentation/authlogic.rb",
+     "lib/rpm_contrib/instrumentation/camping.rb",
+     "lib/rpm_contrib/instrumentation/delayed_job_instrumentation.rb",
+     "lib/rpm_contrib/instrumentation/paperclip.rb",
+     "lib/rpm_contrib/samplers/delayed_job_lock_sampler.rb",
+     "test/delayed_job_instrumentation/delayed_job_test.rb",
      "test/helper.rb",
      "test/test_rpm_contrib.rb"
   ]
@@ -32,7 +39,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Contributed Instrumentation for New Relic RPM}
   s.test_files = [
-    "test/helper.rb",
+    "test/delayed_job_instrumentation/delayed_job_test.rb",
+     "test/helper.rb",
      "test/test_rpm_contrib.rb"
   ]
 
@@ -41,12 +49,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<newrelic_rpm>, [">= 2.10.2"])
+      s.add_runtime_dependency(%q<newrelic_rpm>, [">= 2.10.2.2"])
     else
-      s.add_dependency(%q<newrelic_rpm>, [">= 2.10.2"])
+      s.add_dependency(%q<newrelic_rpm>, [">= 2.10.2.2"])
     end
   else
-    s.add_dependency(%q<newrelic_rpm>, [">= 2.10.2"])
+    s.add_dependency(%q<newrelic_rpm>, [">= 2.10.2.2"])
   end
 end
 
