@@ -1,5 +1,12 @@
+require "#{File.dirname(__FILE__)}/../helper.rb"
+
+begin
+  require 'delayed_job'
+rescue LoadError => e
+  # framework not available  
+end
+
 module DelayedJobInstrumentation 
-  require File.expand_path(File.join(File.dirname(__FILE__),'/../test_helper'))
     
   class LongRunningJob
     def perform
@@ -16,7 +23,7 @@ module DelayedJobInstrumentation
     end
   end
   
-  class DelayedJobTest < Test::Unit::TestCase
+  class TestDelayedJob < Test::Unit::TestCase
     def local_env
       NewRelic::Control.instance.local_env
     end
@@ -105,4 +112,4 @@ module DelayedJobInstrumentation
     end
     
   end
-end if defined? Delayed::Job
+end if defined? Delayed::Job and defined? SQLite3

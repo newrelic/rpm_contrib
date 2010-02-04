@@ -1,4 +1,4 @@
-require 'helper'
+require "#{File.dirname(__FILE__)}/helper"
 
 class TestRpmContrib < Test::Unit::TestCase
   def test_something_for_real
