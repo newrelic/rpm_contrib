@@ -1,3 +1,7 @@
+* Version 1.0.1
+
+  Removed DelayedJob, put back in core agent
+
 * Version 1.0.0
 
   Initial Release:

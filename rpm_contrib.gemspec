@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-01-28}
+  s.date = %q{2010-02-05}
   s.description = %q{      Community contributed instrumentation for various frameworks based on
       the New Relic Ruby monitoring gem newrelic_rpm.
 }
@@ -26,11 +26,9 @@ Gem::Specification.new do |s|
      "lib/rpm_contrib.rb",
      "lib/rpm_contrib/instrumentation/authlogic.rb",
      "lib/rpm_contrib/instrumentation/camping.rb",
-     "lib/rpm_contrib/instrumentation/delayed_job_instrumentation.rb",
      "lib/rpm_contrib/instrumentation/paperclip.rb",
-     "lib/rpm_contrib/samplers/delayed_job_lock_sampler.rb",
-     "test/delayed_job_instrumentation/delayed_job_test.rb",
      "test/helper.rb",
+     "test/schema.rb",
      "test/test_rpm_contrib.rb"
   ]
   s.homepage = %q{http://github.com/newrelic/rpm_contrib}
@@ -39,8 +37,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Contributed Instrumentation for New Relic RPM}
   s.test_files = [
-    "test/delayed_job_instrumentation/delayed_job_test.rb",
-     "test/helper.rb",
+    "test/helper.rb",
+     "test/schema.rb",
      "test/test_rpm_contrib.rb"
   ]
 
