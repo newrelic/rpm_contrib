@@ -4,6 +4,15 @@ The `rpm_contrib` gem contains instrumentation for the New Relic RPM agent
 contributed by the community of RPM users.  It requires the RPM Agent
 to run.
 
+To use the contrib gem, just install the `rpm_contrib` gem off gemcutter 
+and add the gem dependency to your app, or just require rpm_contrib.
+When you load the rpm_contrib gem, the `newrelic_rpm` gem will also be initialized.
+
+**It's important that you don't load the newrelic_rpm gem separately.** The 
+`rpm_contrib` gem must be loaded before the `newrelic_rpm` gem initializes.
+
+# How to Add Custom Instrumentation
+
 We encourage contributions to this project and will provide whatever
 assistance we can to those wishing to develop instrumentation for
 other open source Ruby libraries.
@@ -11,8 +20,6 @@ other open source Ruby libraries.
 When adding instrumentation to this gem, be sure and get familiar with the
 [RPM Agent API](http://newrelic.github.com/rpm/classes/NewRelic/Agent.html)
 and contact support@newrelic.com with any questions.
-
-# How to Add Custom Instrumentation
 
 There are several extension points in the agent you can take advantage of
 with this gem.
