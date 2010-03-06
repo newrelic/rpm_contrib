@@ -35,8 +35,11 @@ It is important that you wrap any instrumentation with the checks necessary
 to determine if the code being instrumented is loaded.  You can't add code to the
 contrib gem that will break when run in any other context besides yours.
 
-For details on the instrumentation API, refer to the 
-[Agent method tracing rdocs](http://newrelic.github.com/rpm/classes/NewRelic/Agent/MethodTracer.html)
+
+For details on how to define custom tracers, refer to the [support documentation on adding
+custom tracers](http://support.newrelic.com/faqs/docs/custom-metric-collection).  You 
+can also get detailed information on the API from the 
+[Agent method tracing rdocs](http://newrelic.github.com/rpm/classes/NewRelic/Agent/MethodTracer.html),
 especially the [add_method_tracer](http://newrelic.github.com/rpm/classes/NewRelic/Agent/MethodTracer/ClassMethods.html)
 docs.
 
