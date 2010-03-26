@@ -1,28 +1,50 @@
 # The RPM Contrib Gem
 
-The `rpm_contrib` gem contains instrumentation for the New Relic RPM agent
-contributed by the community of RPM users.  It requires the RPM Agent
-to run.
+The `rpm_contrib` gem contains instrumentation for the New Relic RPM
+agent contributed by the community of RPM users.  It requires the RPM
+Agent to run.
 
-To use the contrib gem, install the `rpm_contrib` gem off gemcutter.  It will
-also install the required version of the `newrelic_rpm` gem if it's not 
-already installed.
+To use the contrib gem, install the `rpm_contrib` gem off gemcutter.
+It will also install the required version of the `newrelic_rpm` gem if
+it's not already installed.
 
-For Rails 2.1 and later, add the dependency in your initializer:
+For Rails 2.1 and later, add these dependencies in this order to your
+in your environment.rb:
 
     config.gem 'rpm_contrib'
+    config.gem 'newrelic_rpm'
 
-For other frameworks, make sure you load rubygems if it isn't already, then
-just require the contrib gem:
+For other frameworks, make sure you load rubygems if it isn't already,
+then just require the contrib gem:
 
     require 'rubygems'
     require 'rpm_contrib'
 
-When you load the rpm_contrib gem, the `newrelic_rpm` gem will also be initialized.
-No need for a separate require statement for `newrelic_rpm`.
+When you load the rpm_contrib gem, the `newrelic_rpm` gem will also be
+initialized.  No need for a separate require statement for
+`newrelic_rpm`.  The `rpm_contrib` gem must be loaded before the
+`newrelic_rpm` gem initializes.
 
-**It's important that you don't load the newrelic_rpm gem separately.** The 
-`rpm_contrib` gem must be loaded before the `newrelic_rpm` gem initializes.
+# Supported Frameworks
+
+A number of frameworks are supported in the contrib gem.  They are all
+turned on by default but you can add settings to your newrelic.yml to
+disable any of them.
+
+### Camping
+
+### Paperclip
+
+### Authlogic
+
+### MongoDB
+
+### Resque
+
+To disable resque, add this to your newrelic.yml:
+
+    disable_resque: true
+
 
 # How to Add Custom Instrumentation
 

@@ -18,7 +18,7 @@ begin
     gem.email = "support@newrelic.com"
     gem.homepage = "http://github.com/newrelic/rpm_contrib"
     gem.author = "Bill Kayser"
-    gem.add_dependency 'newrelic_rpm', '>= 2.10.6'
+    gem.add_dependency 'newrelic_rpm', '>= 2.11.0'
     gem.version = version
     gem.files = FileList['LICENSE', 'README*', 'lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a
   end

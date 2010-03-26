@@ -1,3 +1,7 @@
+* Version 1.0.4
+
+  Resque support
+
 * Version 1.0.3
 
   MongoDB instrumentation contributed by John Nunemaker
