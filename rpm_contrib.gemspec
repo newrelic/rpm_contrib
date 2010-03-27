@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "1.0.2"
+  s.version = "1.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-03-05}
+  s.date = %q{2010-03-26}
   s.description = %q{      Community contributed instrumentation for various frameworks based on
       the New Relic Ruby monitoring gem newrelic_rpm.
 }
@@ -26,9 +26,12 @@ Gem::Specification.new do |s|
      "lib/new_relic/control/camping.rb",
      "lib/rpm_contrib.rb",
      "lib/rpm_contrib/detection/camping.rb",
+     "lib/rpm_contrib/detection/resque.rb",
      "lib/rpm_contrib/instrumentation/authlogic.rb",
      "lib/rpm_contrib/instrumentation/camping.rb",
+     "lib/rpm_contrib/instrumentation/mongodb.rb",
      "lib/rpm_contrib/instrumentation/paperclip.rb",
+     "lib/rpm_contrib/instrumentation/resque.rb",
      "test/helper.rb",
      "test/schema.rb",
      "test/test_rpm_contrib.rb"
@@ -49,12 +52,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<newrelic_rpm>, [">= 2.10.6"])
+      s.add_runtime_dependency(%q<newrelic_rpm>, ["= 2.11.0.beta"])
     else
-      s.add_dependency(%q<newrelic_rpm>, [">= 2.10.6"])
+      s.add_dependency(%q<newrelic_rpm>, ["= 2.11.0.beta"])
     end
   else
-    s.add_dependency(%q<newrelic_rpm>, [">= 2.10.6"])
+    s.add_dependency(%q<newrelic_rpm>, ["= 2.11.0.beta"])
   end
 end
 

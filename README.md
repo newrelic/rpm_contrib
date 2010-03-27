@@ -4,15 +4,14 @@ The `rpm_contrib` gem contains instrumentation for the New Relic RPM
 agent contributed by the community of RPM users.  It requires the RPM
 Agent to run.
 
-To use the contrib gem, install the `rpm_contrib` gem off gemcutter.
+To use the contrib gem, install the `rpm_contrib` gem from gemcutter.
 It will also install the required version of the `newrelic_rpm` gem if
 it's not already installed.
 
-For Rails 2.1 and later, add these dependencies in this order to your
-in your environment.rb:
+For Rails 2.1 and later, add this dependency to your in your
+environment.rb:
 
     config.gem 'rpm_contrib'
-    config.gem 'newrelic_rpm'
 
 For other frameworks, make sure you load rubygems if it isn't already,
 then just require the contrib gem:

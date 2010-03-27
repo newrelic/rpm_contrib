@@ -5,7 +5,6 @@ module RPMContrib
   VERSION = File.read(RPM_CONTRIB_LIB+"/../CHANGELOG")[/Version ([\d\.]+)$/, 1]
 end
 
-
 # Perform any framework/dispatcher detection before loading the rpm
 # gem.
 
@@ -15,11 +14,21 @@ Dir.glob(RPM_CONTRIB_LIB + "/rpm_contrib/detection/**/*.rb") { |file| require fi
 
 require 'newrelic_rpm'
 
-# Tell the agent to load all the files in the rpm_contrib/instrumentation directory.
+init_sequence = Proc.new do
+  
+  # Tell the agent to load all the files in the
+  # rpm_contrib/instrumentation directory.
+  NewRelic::Agent.add_instrumentation(RPM_CONTRIB_LIB+"/rpm_contrib/instrumentation/**/*.rb")
 
-NewRelic::Agent.add_instrumentation(RPM_CONTRIB_LIB+"/rpm_contrib/instrumentation/**/*.rb")
+  # Load all the Sampler class definitions.  These will register
+  # automatically with the agent.
+  Dir.glob(RPM_CONTRIB_LIB + "/rpm_contrib/samplers/**/*.rb") { |file| require file }
+end
 
-# Load all the Sampler class definitions.  These will register
-# automatically with the agent.
-Dir.glob(RPM_CONTRIB_LIB + "/rpm_contrib/samplers/**/*.rb") { |file| require file }
+if defined?(Rails.configuration)
+  Rails.configuration.after_initialize &init_sequence
+else
+  init_sequence.call
+end
+
 
