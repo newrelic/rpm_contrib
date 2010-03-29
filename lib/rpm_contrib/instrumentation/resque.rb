@@ -18,6 +18,7 @@ module RPMContrib
             class_name = 'Resque::Job'
           end
           name = 'process'
+          NewRelic::Agent.reset_stats if NewRelic::Agent.respond_to? :reset_stats
           perform_action_with_newrelic_trace(:name => name, :class_name => class_name,
                                              :category => 'OtherTransaction/ResqueJob') do
             old_process_method.bind(self).call(*args)
