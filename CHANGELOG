@@ -1,3 +1,7 @@
+* Version 1.0.5
+
+  Clear stats in forked resque jobs
+
 * Version 1.0.4
 
   Resque support
