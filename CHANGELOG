@@ -1,3 +1,7 @@
+* Version 1.0.6
+
+  Update newrelic dependency: depends on 2.11.1
+
 * Version 1.0.5
 
   Clear stats in forked resque jobs
