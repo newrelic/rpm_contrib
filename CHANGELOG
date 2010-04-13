@@ -1,3 +1,7 @@
+* Version 1.0.7
+
+  Resque instrumentation now supports the resque-multi-job-forks plugin
+
 * Version 1.0.6
 
   Update newrelic dependency: depends on 2.11.1
