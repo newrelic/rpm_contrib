@@ -2,7 +2,8 @@
 # This will eventually become an official plugin but for those who can't wait, enjoy.
 
 if defined?(::MongoMapper)
-  module MMNewRelicTracing
+  module RPMContrib::Instrumentation
+    module MongoDB
     def self.included(model)
       model.metaclass.class_eval do
         add_method_tracer :find,        'Database/#{self.name}/find'
@@ -36,5 +37,5 @@ if defined?(::MongoMapper)
       end
     end
   end
-  ::MongoMapper::Document.append_inclusions(MMNewRelicTracing)
+  ::MongoMapper::Document.append_inclusions(::RPMContrib::Instrumentation::MongoDB)
 end
