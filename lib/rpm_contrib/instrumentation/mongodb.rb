@@ -1,9 +1,9 @@
 # Just drop this little diddy in your app to get some (not perfect) information on query times and such
 # This will eventually become an official plugin but for those who can't wait, enjoy.
 
-if defined?(::MongoMapper)
-  module RPMContrib::Instrumentation
-    module MongoDB
+
+module RPMContrib::Instrumentation
+  module MongoDB
     def self.included(model)
       model.metaclass.class_eval do
         add_method_tracer :find,        'Database/#{self.name}/find'
@@ -38,4 +38,4 @@ if defined?(::MongoMapper)
     end
   end
   ::MongoMapper::Document.append_inclusions(::RPMContrib::Instrumentation::MongoDB)
-end
+end if defined?(::MongoMapper)
