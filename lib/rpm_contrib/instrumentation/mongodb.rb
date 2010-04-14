@@ -38,4 +38,4 @@ module RPMContrib::Instrumentation
     end
   end
   ::MongoMapper::Document.append_inclusions(::RPMContrib::Instrumentation::MongoDB)
-end if defined?(::MongoMapper)
+end if defined?(::MongoMapper) && !NewRelic::Control.instance['disable_mongodb']

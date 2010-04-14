@@ -1,6 +1,6 @@
 # Paperclip Instrumentation.
  
-if defined? ::Paperclip
+if defined?(::Paperclip) && !NewRelic::Control.instance['disable_paperclip']
  
   ::Paperclip::Attachment.class_eval do
     add_method_tracer :save, 'Paperclip/#{name}/save'
