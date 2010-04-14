@@ -5,23 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "1.0.6"
+  s.version = "1.0.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-04-02}
+  s.date = %q{2010-04-13}
   s.description = %q{      Community contributed instrumentation for various frameworks based on
       the New Relic Ruby monitoring gem newrelic_rpm.
 }
   s.email = %q{support@newrelic.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.md"
+     "README.rdoc"
   ]
   s.files = [
     "CHANGELOG",
      "LICENSE",
-     "README.md",
+     "README.rdoc",
      "Rakefile",
      "lib/new_relic/control/camping.rb",
      "lib/rpm_contrib.rb",
