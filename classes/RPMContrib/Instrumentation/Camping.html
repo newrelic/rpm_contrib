@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RPMContrib::Instrumentation::Camping</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            RPMContrib::Instrumentation::Camping 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/rpm_contrib/instrumentation/camping_rb.html">lib/rpm_contrib/instrumentation/camping.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h2><a href="../Instrumentation.html">Instrumentation</a> for <a href="Camping.html">Camping</a></h2>
+<p>
+To instrument all controllers do the following:
+</p>
+<ol>
+<li>Add require &#8216;rpm_contrib&#8217; after loading camping.
+
+</li>
+<li>Add an include at the end of your main <a href="Camping.html">Camping</a>
+app module
+
+</li>
+<li>Run the following command to get the <a
+href="../../NewRelic.html">NewRelic</a> license key to use: heroku config
+-all
+
+</li>
+<li>Create a newrelic.yml under the /config folder with the following content:
+
+<p>
+common: &amp;default_settings
+</p>
+<pre>
+   license_key: 'PASTE THE VALUE OF NEW_RELIC_LICENSE_KEY HERE'
+   app_name: PASTE THE NAME OF YOUR CAMPING APP HERE
+   monitor_mode: true
+</pre>
+<p>
+production:
+</p>
+<pre>
+   &lt;&lt;: *default_settings
+</pre>
+</li>
+</ol>
+<p>
+<a href="Camping.html">Camping</a> code example:
+</p>
+<hr size="10"></hr><pre>
+  require &quot;newrelic_rpm&quot;
+
+  Camping.goes :NewRelicCampingTest
+
+  module NewRelicCampingTest
+    # your code
+
+    include NewRelic::Agent::Instrumentation::Camping
+
+  end
+</pre>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>I</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000004">included</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <span>NewRelic::Agent::Instrumentation::ControllerInstrumentation</span>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000004">
+                    
+                    <a name="M000004"></a><b>included</b>(mod)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
+                        
+                        | <a href="http://github.com/newrelic/rpm_contrib/blob/4f58aa374849c9f2c644f245aba62a19ea4a06e9/lib/rpm_contrib/instrumentation/camping.rb#L38" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000004_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/rpm_contrib/instrumentation/camping.rb, line 38</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">mod</span>)
+        
+        <span class="ruby-comment cmt"># Since the Camping::Base module is essentially copied</span>
+        <span class="ruby-comment cmt"># into the main module (the mod passed in) of a Camping app </span>
+        <span class="ruby-comment cmt"># using the Camping.goes :NewRelicCampingTest syntax</span>
+        <span class="ruby-comment cmt"># we need to evaluate &quot;weld&quot; the NewRelic plugin in the context of the new Base</span>
+        
+        (<span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">mod</span>.<span class="ruby-identifier">name</span>)<span class="ruby-operator">::</span><span class="ruby-constant">Base</span>).<span class="ruby-identifier">module_eval</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">include</span> <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Agent</span><span class="ruby-operator">::</span><span class="ruby-constant">Instrumentation</span><span class="ruby-operator">::</span><span class="ruby-constant">ControllerInstrumentation</span>
+          <span class="ruby-identifier">add_transaction_tracer</span> <span class="ruby-identifier">:service</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
