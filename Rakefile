@@ -6,11 +6,14 @@ def version
   @rpm_contrib_version ||= File.read("CHANGELOG")[/Version ([\d\.]+)$/, 1]
 end
 
+RDOC_FILES = FileList['README*','LICENSE','CHANGELOG']
+SUMMARY = "Contributed Instrumentation for New Relic RPM"
+
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rpm_contrib"
-    gem.summary = %Q{Contributed Instrumentation for New Relic RPM}
+    gem.summary = SUMMARY
     gem.description = <<-EOF
       Community contributed instrumentation for various frameworks based on
       the New Relic Ruby monitoring gem newrelic_rpm.
@@ -21,6 +24,12 @@ begin
     gem.add_dependency 'newrelic_rpm', '2.11.1'
     gem.version = version
     gem.files = FileList['LICENSE', 'README*', 'lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a
+    gem.rdoc_options <<
+      "--line-numbers" <<
+      "--inline-source" <<
+      "--title" << SUMMARY <<
+      "-m" << "README.rdoc"
+    gem.extra_rdoc_files = RDOC_FILES
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
@@ -55,11 +64,9 @@ require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "rpm_contrib #{version}"
-  rdoc.main = "README.rdoc"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('LICENSE')
-  rdoc.rdoc_files.include('CHANGELOG')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+  rdoc.main = "README.md"
+  rdoc.rdoc_files =  FileList['lib/**/*.rb'] + RDOC_FILES
+  rdoc.inline_source = true
 end
 
 begin

@@ -1,10 +1,8 @@
-# Detect when running under camping and set the framework and dispatcher.
-
-module NewRelic
+module NewRelic #:nodoc:
   # The class defined in the
   # newrelic_rpm[http://newrelic.github.com/rpm] which can be ammended
   # to support new frameworks by defining modules in this namespace.
-  class LocalEnvironment
+  class LocalEnvironment #:nodoc:
     module Camping
       def discover_framework
         if defined?(::Camping)
