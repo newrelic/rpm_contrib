@@ -1,11 +1,11 @@
-# == Resque Instrumentation
-#
-# Installs a hook to ensure the agent starts manually when the worker
-# starts and also adds the tracer to the process method which executes
-# in the forked task.
 
 module RPMContrib
   module Instrumentation
+    # == Resque Instrumentation
+    #
+    # Installs a hook to ensure the agent starts manually when the worker
+    # starts and also adds the tracer to the process method which executes
+    # in the forked task.
     module ResqueInstrumentation
       ::Resque::Job.class_eval do
         include NewRelic::Agent::Instrumentation::ControllerInstrumentation
