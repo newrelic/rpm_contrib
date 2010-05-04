@@ -8,16 +8,17 @@ end
 
 RDOC_FILES = FileList['README*','LICENSE','CHANGELOG']
 SUMMARY = "Contributed Instrumentation for New Relic RPM"
+DESCRIPTION = <<-EOF
+Community contributed instrumentation for various frameworks based on
+the New Relic Ruby monitoring gem newrelic_rpm.
+EOF
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rpm_contrib"
     gem.summary = SUMMARY
-    gem.description = <<-EOF
-      Community contributed instrumentation for various frameworks based on
-      the New Relic Ruby monitoring gem newrelic_rpm.
-    EOF
+    gem.description = DESCRIPTION
     gem.email = "support@newrelic.com"
     gem.homepage = "http://github.com/newrelic/rpm_contrib"
     gem.author = "Bill Kayser"
@@ -28,7 +29,7 @@ begin
       "--line-numbers" <<
       "--inline-source" <<
       "--title" << SUMMARY <<
-      "-m" << "README.rdoc"
+      "-m" << "README.md"
     gem.extra_rdoc_files = RDOC_FILES
   end
   Jeweler::GemcutterTasks.new
