@@ -41,11 +41,6 @@ for more information.
 No special configuration required for Paperclip visibility.  You can disable
 it by setting `disable_paperclip` to true in the newrelic.yml file.
 
-### Authlogic
-
-No special configuration required for Authlogic visibility.  You can disable
-it by setting `disable_authlogic` to true in the newrelic.yml file.
-
 ### MongoDB
 
 No special configuration required for MongoDB visibility.  You can disable

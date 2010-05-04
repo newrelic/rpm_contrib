@@ -1,3 +1,5 @@
+  Authlogic moved into RPM Ruby Agent
+
 * Version 1.0.7
 
   Resque instrumentation now supports the resque-multi-job-forks plugin
