@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "1.0.8"
+  s.version = "1.0.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-05-04}
+  s.date = %q{2010-05-10}
   s.description = %q{Community contributed instrumentation for various frameworks based on
 the New Relic Ruby monitoring gem newrelic_rpm.
 }
@@ -53,12 +53,12 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<newrelic_rpm>, ["= 2.11.1"])
+      s.add_runtime_dependency(%q<newrelic_rpm>, [">= 2.11.1"])
     else
-      s.add_dependency(%q<newrelic_rpm>, ["= 2.11.1"])
+      s.add_dependency(%q<newrelic_rpm>, [">= 2.11.1"])
     end
   else
-    s.add_dependency(%q<newrelic_rpm>, ["= 2.11.1"])
+    s.add_dependency(%q<newrelic_rpm>, [">= 2.11.1"])
   end
 end
 
