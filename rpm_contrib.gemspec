@@ -30,6 +30,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
      "lib/rpm_contrib/detection/resque.rb",
      "lib/rpm_contrib/instrumentation/camping.rb",
      "lib/rpm_contrib/instrumentation/mongodb.rb",
+     "lib/rpm_contrib/instrumentation/mongoid.rb",
      "lib/rpm_contrib/instrumentation/paperclip.rb",
      "lib/rpm_contrib/instrumentation/redis.rb",
      "lib/rpm_contrib/instrumentation/resque.rb",
