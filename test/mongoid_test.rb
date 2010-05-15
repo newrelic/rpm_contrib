@@ -1,5 +1,11 @@
 require "#{File.dirname(__FILE__)}/helper"
 require 'mongoid'
+require "#{File.dirname(__FILE__)}/../lib/rpm_contrib/instrumentation/mongoid"
+
+
+Mongoid.configure do |config|
+  config.master = Mongo::Connection.new.db('animals')
+end
 
 class Dog
   include Mongoid::Document
@@ -24,8 +30,7 @@ class MongoidTest < Test::Unit::TestCase
 
   # Fake test
   def test_fail
+    Dog.create!(:name=>'rover')
 
-    # To change this template use File | Settings | File Templates.
-    fail("Not implemented")
   end
 end

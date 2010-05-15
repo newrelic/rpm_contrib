@@ -1,4 +1,5 @@
-if defined?(::MongoMapper) && !NewRelic::Control.instance['disable_mongodb']
+debugger
+if defined?(::Mongoid) && !NewRelic::Control.instance['disable_mongodb']
 
   module Mongoid #:nodoc:
     module Document
@@ -20,6 +21,7 @@ if defined?(::MongoMapper) && !NewRelic::Control.instance['disable_mongodb']
     module Mongoid
       def included(model)
         model.metaclass.class_eval do
+          puts "adding mongoid method tracers for #{model.name}"
           add_method_tracer :create, 'Database/#{self.name}/create'
           add_method_tracer :create!, 'Database/#{self.name}/create!'
           add_method_tracer :delete_all, 'Database/#{self.name}/delete_all'
