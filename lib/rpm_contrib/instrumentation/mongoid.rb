@@ -1,4 +1,3 @@
-debugger
 if defined?(::Mongoid) && !NewRelic::Control.instance['disable_mongodb']
 
   module Mongoid #:nodoc:
@@ -52,11 +51,3 @@ if defined?(::Mongoid) && !NewRelic::Control.instance['disable_mongodb']
     ::Mongoid::Document.extend(RPMContrib::Instrumentation::Mongoid)
   end
 end
-
-
-
-
-
-
-
-

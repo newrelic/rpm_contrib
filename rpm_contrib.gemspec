@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "1.0.9"
+  s.version = "1.0.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-05-10}
+  s.date = %q{2010-05-21}
   s.description = %q{Community contributed instrumentation for various frameworks based on
 the New Relic Ruby monitoring gem newrelic_rpm.
 }
@@ -35,6 +35,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
      "lib/rpm_contrib/instrumentation/redis.rb",
      "lib/rpm_contrib/instrumentation/resque.rb",
      "test/helper.rb",
+     "test/mongoid_test.rb",
      "test/schema.rb",
      "test/test_rpm_contrib.rb"
   ]
@@ -45,6 +46,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
   s.summary = %q{Contributed Instrumentation for New Relic RPM}
   s.test_files = [
     "test/helper.rb",
+     "test/mongoid_test.rb",
      "test/schema.rb",
      "test/test_rpm_contrib.rb"
   ]
