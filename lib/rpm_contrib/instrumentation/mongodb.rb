@@ -1,8 +1,9 @@
-# Just drop this little diddy in your app to get some (not perfect) information on query times and such
-# This will eventually become an official plugin but for those who can't wait, enjoy.
-
 
 module RPMContrib::Instrumentation
+  # Just drop this little diddy in your app to get some (not perfect) information
+  # on query times and such.
+  #
+  # Currently only MongoMapper is implemented
   module MongoDB
     def self.included(model)
       model.metaclass.class_eval do

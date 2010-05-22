@@ -39,8 +39,11 @@ it by setting `disable_paperclip` to true in the newrelic.yml file.
 
 ### MongoDB
 
-No special configuration required for MongoDB visibility.  You can disable
-it by setting `disable_mongodb` to true in the newrelic.yml file.
+The MongoMapper object mapper is the only currently supported mapper for RPM
+visibility using this gem.  Feel free to add others and let us know.
+
+No special configuration required.  You can disable it by setting
+`disable_mongodb` to true in the newrelic.yml file.
 
 ### Resque
 
