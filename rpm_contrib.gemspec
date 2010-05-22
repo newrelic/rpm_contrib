@@ -29,15 +29,14 @@ the New Relic Ruby monitoring gem newrelic_rpm.
      "lib/rpm_contrib/detection/camping.rb",
      "lib/rpm_contrib/detection/resque.rb",
      "lib/rpm_contrib/instrumentation/camping.rb",
-     "lib/rpm_contrib/instrumentation/mongodb.rb",
+     "lib/rpm_contrib/instrumentation/mongo_mapper.rb",
      "lib/rpm_contrib/instrumentation/mongoid.rb",
      "lib/rpm_contrib/instrumentation/paperclip.rb",
      "lib/rpm_contrib/instrumentation/redis.rb",
      "lib/rpm_contrib/instrumentation/resque.rb",
      "test/helper.rb",
-     "test/mongoid_test.rb",
      "test/schema.rb",
-     "test/test_rpm_contrib.rb"
+     "test/test_mongoid.rb"
   ]
   s.homepage = %q{http://github.com/newrelic/rpm_contrib}
   s.rdoc_options = ["--charset=UTF-8", "--line-numbers", "--inline-source", "--title", "Contributed Instrumentation for New Relic RPM", "-m", "README.md"]
@@ -46,9 +45,8 @@ the New Relic Ruby monitoring gem newrelic_rpm.
   s.summary = %q{Contributed Instrumentation for New Relic RPM}
   s.test_files = [
     "test/helper.rb",
-     "test/mongoid_test.rb",
      "test/schema.rb",
-     "test/test_rpm_contrib.rb"
+     "test/test_mongoid.rb"
   ]
 
   if s.respond_to? :specification_version then
