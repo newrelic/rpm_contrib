@@ -1,3 +1,9 @@
+* Version 1.0.11
+
+  AWS/S3 instrumentation contributed by Brian Doll
+  Cassandra instrumentation contributed by Ashley Martens
+  Updated Redis instrumentation for 1.x and 2.x contributed by Karl Baum
+
 * Version 1.0.10
 
   Mongoid support contributed by Karl Baum
