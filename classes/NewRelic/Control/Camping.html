@@ -34,16 +34,6 @@
     <div id="bodyContent">
         <div id="content">
     
-    <div class="description">
-        <p>
-This is the framework control object for <a href="Camping.html">Camping</a>
-apps. It is loaded by virtue of detecting &#8216;camping&#8217; as the
-framework in the rpm_contrib/detection/camping.rb file. It gets loaded by
-the new_relic/control.rb file.
-</p>
-
-    </div>
-    
 
     
 
@@ -59,7 +49,7 @@ the new_relic/control.rb file.
         <dd>
             <ul>
                 
-                <li><a href="#M000000">init_config</a></li>
+                <li><a href="#M000011">init_config</a></li>
                 
             </ul>
         </dd>
@@ -81,9 +71,9 @@ the new_relic/control.rb file.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000000">
+                <div class="title" id="M000011">
                     
-                    <a name="M000000"></a><b>init_config</b>(options)
+                    <a name="M000011"></a><b>init_config</b>(options)
                     
                 </div>
                 
@@ -92,18 +82,18 @@ the new_relic/control.rb file.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
                         
-                        | <a href="http://github.com/newrelic/rpm_contrib/blob/4f58aa374849c9f2c644f245aba62a19ea4a06e9/lib/new_relic/control/camping.rb#L7" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/newrelic/rpm_contrib/blob/259e6c949b27134005bdd0b5dbc555aa5e0e90a2/lib/new_relic/control/camping.rb#L8" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000000_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/new_relic/control/camping.rb, line 7</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">init_config</span>(<span class="ruby-identifier">options</span>)
-    <span class="ruby-keyword kw">super</span>
-    <span class="ruby-ivar">@local_env</span>.<span class="ruby-identifier">dispatcher</span> = <span class="ruby-value str">'camping'</span>
-    <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'app_name'</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">'Camping Application'</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="M000011_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/new_relic/control/camping.rb, line 8</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">init_config</span>(<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword kw">super</span>
+      <span class="ruby-ivar">@local_env</span>.<span class="ruby-identifier">dispatcher</span> = <span class="ruby-value str">'camping'</span>
+      <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'app_name'</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">'Camping Application'</span>
+    <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
