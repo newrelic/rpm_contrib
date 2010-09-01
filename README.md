@@ -3,16 +3,20 @@
 The `rpm_contrib` gem contains instrumentation for the New Relic RPM agent
 contributed by the community of RPM users.  It requires the RPM Agent to run.
 
-To use the contrib gem, install the `rpm_contrib` gem from gemcutter.  It will
-also install the required version of the `newrelic_rpm` gem if it's not already
-installed.
+To use the rpm_contrib gem, install the `rpm_contrib` gem from rubygems.org.
+It will also install the required version of the `newrelic_rpm` gem if it's not
+already installed.
+
+For Rails 3.0 and later, add this dependency to your Gemfile:
+
+    gem 'rpm_contrib'
 
 For Rails 2.1 and later, add this dependency to your in your environment.rb:
 
     config.gem 'rpm_contrib'
 
 For other frameworks, make sure you load rubygems if it isn't already, then just
-require the contrib gem:
+require the rpm_contrib gem:
 
     require 'rubygems'
     require 'rpm_contrib'
@@ -39,26 +43,25 @@ it by setting `disable_paperclip` to true in the newrelic.yml file.
 
 ### MongoDB
 
-The MongoMapper object mapper is the only currently supported mapper for RPM
-visibility using this gem.  Feel free to add others and let us know.
-
-No special configuration required.  You can disable it by setting
-`disable_mongodb` to true in the newrelic.yml file.
+Both MongoMapper and Mongoid are supported.  You can disable them both by setting
+'disable_mongodb' to true in the newrelic.yml file.
 
 ### Resque
 
-To disable resque, add this to your newrelic.yml:
-
-    disable_resque: true
+To disable resque, set 'disable_resque' to true in your newrelic.yml file.
 
 ### Redis
 
 Redis instrumentation will record operations as well as `allWeb` and `allOther`
-summary metrics under the `Database/Redis` metric namespace.
+summary metrics under the `Database/Redis` metric namespace. This instrumentation
+supports Redis versions 1.x and 2.x. To disable Redis instrumentation, set
+'disable_redis' to true in your newrelic.yml file.
 
-To disable Redis instrumentation, add this to your newrelic.yml:
+### AWS/S3
 
-    disable_redis: true
+Get metrics on how S3 is performing for you in production. To disable AWS/S3, set
+'disable_aws-s3' to true in your newrelic.yml file.  For more information on this
+instrumentation, check out [our blog](http://blog.newrelic.com/2010/07/06/monitoring-aws-s3/).
 
 # How to Add Custom Instrumentation
 
