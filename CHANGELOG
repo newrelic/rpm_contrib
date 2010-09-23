@@ -1,3 +1,8 @@
+* Version 1.0.12
+
+  Better support for initialization within a Rails 3 application
+  rpm_contrib now depends on newrelic_rpm >= 2.13.1
+
 * Version 1.0.11
 
   AWS/S3 instrumentation contributed by Brian Doll
