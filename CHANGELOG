@@ -1,3 +1,8 @@
+* Version 1.0.13
+
+  Removed use of 'metaclass' - no longer available from ActiveSupport as of Rails 3
+  Contributed by Chris Griego
+
 * Version 1.0.12
 
   Better support for initialization within a Rails 3 application
