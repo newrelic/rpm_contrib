@@ -13,8 +13,7 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     curl.perform
     assert_match /<head>/, curl.body_str
     assert_equal %w[External/www.google.com/Curl::Easy External/Curl::Multi
-                    External/allOther External/www.google.com/all
-                    External/www.google.com/Curl::Multi].sort,
+                    External/allOther External/www.google.com/all].sort,
        @engine.metrics.sort 
   end
 
@@ -27,11 +26,7 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     multi.perform
     assert_match /<head>/, curl1.body_str
     assert_match /<head>/, curl2.body_str
-    assert_equal %w[External/Curl::Multi External/allOther
-                    External/www.google.com/Curl::Multi
-                    External/www.google.com/all
-                    External/www.yahoo.com/Curl::Multi
-                    External/www.yahoo.com/all].sort,
+    assert_equal %w[External/Curl::Multi External/allOther].sort,
        @engine.metrics.sort 
   end
 
@@ -44,7 +39,6 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     assert_equal %w[External/Curl::Multi
           External/Curl::Multi:OtherTransaction/Background/NewRelic::Agent::NetInstrumentationTest/task
           External/www.google.com/Curl::Easy External/allOther External/www.google.com/all
-          External/www.google.com/Curl::Multi
           External/www.google.com/Curl::Easy:OtherTransaction/Background/NewRelic::Agent::NetInstrumentationTest/task].sort,
        @engine.metrics.select{|m| m =~ /^External/}.sort
   end
@@ -58,7 +52,6 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     assert_equal %w[External/Curl::Multi
           External/Curl::Multi:Controller/NewRelic::Agent::NetInstrumentationTest/task
           External/www.google.com/Curl::Easy External/allWeb External/www.google.com/all
-          External/www.google.com/Curl::Multi
           External/www.google.com/Curl::Easy:Controller/NewRelic::Agent::NetInstrumentationTest/task].sort,
        @engine.metrics.select{|m| m =~ /^External/}.sort
   end
