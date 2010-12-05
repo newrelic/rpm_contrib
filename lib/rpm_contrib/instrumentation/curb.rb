@@ -24,12 +24,6 @@ if defined?(::Curl) and not NewRelic::Control.instance['disable_curb']
     # TODO: http
     def perform_with_newrelic_trace(*args, &block)
       metrics = ["External/Curl::Multi"]
-      curl_metrics = Set.new
-      requests.each do |curl|
-        curl_metrics.add("External/#{curl.host}/Curl::Multi")
-        curl_metrics.add("External/#{curl.host}/all")
-      end
-      metrics.concat curl_metrics.to_a
       if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
         metrics << "External/allWeb"
       else
