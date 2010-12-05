@@ -31,6 +31,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
      "lib/rpm_contrib/instrumentation/aws/s3.rb",
      "lib/rpm_contrib/instrumentation/camping.rb",
      "lib/rpm_contrib/instrumentation/cassandra.rb",
+     "lib/rpm_contrib/instrumentation/curb.rb",
      "lib/rpm_contrib/instrumentation/mongo_mapper.rb",
      "lib/rpm_contrib/instrumentation/mongoid.rb",
      "lib/rpm_contrib/instrumentation/paperclip.rb",
@@ -49,6 +50,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
   s.test_files = [
     "test/helper.rb",
      "test/schema.rb",
+     "test/test_curb.rb",
      "test/test_mongoid.rb",
      "test/test_redis.rb"
   ]
