@@ -33,6 +33,7 @@ if defined?(::MongoMapper) && !NewRelic::Control.instance['disable_mongodb']
             add_method_tracer :push_uniq,   'Database/#{self.name}/push_uniq'
             add_method_tracer :pull,        'Database/#{self.name}/pull'
             add_method_tracer :pull_all,    'Database/#{self.name}/pull_all'
+            add_method_tracer :where,    'Database/#{self.name}/where'
           end
 
           add_method_tracer :save, 'Database/#{self.class.name}/save'
