@@ -1,5 +1,18 @@
 
 module RPMContrib
+  SUPPORTS_FORK =
+    begin
+      # jruby has a Kernel.fork method, but it raises NotImplementedError by default
+      if Kernel.respond_to?(:fork)
+        Kernel.fork { exit! }
+        true
+      else
+        false
+      end
+    rescue NotImplementedError
+      false
+    end
+
   module Instrumentation
     # == Resque Instrumentation
     #
@@ -20,13 +33,22 @@ module RPMContrib
             old_perform_method.bind(self).call
           end
 
-          NewRelic::Agent.shutdown unless defined?(::Resque.before_child_exit)
+          if ::RPMContrib::SUPPORTS_FORK
+            NewRelic::Agent.shutdown unless defined?(::Resque.before_child_exit)
+          else
+            NewRelic::Agent.agent.instance_variable_get(:@worker_loop).run_task unless defined?(::Resque.before_child_exit)
+          end
+
         end
       end
 
       if defined?(::Resque.before_child_exit)
         ::Resque.before_child_exit do |worker|
-          NewRelic::Agent.shutdown
+          if ::RPMContrib::SUPPORTS_FORK
+            NewRelic::Agent.shutdown
+          else
+            NewRelic::Agent.agent.instance_variable_get(:@worker_loop).run_task
+          end
         end
       end
     end
