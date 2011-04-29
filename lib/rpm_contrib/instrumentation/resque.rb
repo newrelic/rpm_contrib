@@ -41,7 +41,7 @@ module RPMContrib
           if ::RPMContrib::SUPPORTS_FORK
             NewRelic::Agent.shutdown unless defined?(::Resque.before_child_exit)
           else
-            ::RPM::Contrib::Instrumentation::ResqueInstrumentation.flush_metric_data unless defined?(::Resque.before_child_exit)
+            ::RPMContrib::Instrumentation::ResqueInstrumentation.flush_metric_data unless defined?(::Resque.before_child_exit)
           end
 
         end
@@ -52,7 +52,7 @@ module RPMContrib
           if ::RPMContrib::SUPPORTS_FORK
             NewRelic::Agent.shutdown
           else
-            ::RPM::Contrib::Instrumentation::ResqueInstrumentation.flush_metric_data
+            ::RPMContrib::Instrumentation::ResqueInstrumentation.flush_metric_data
           end
         end
       end
