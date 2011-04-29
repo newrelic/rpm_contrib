@@ -20,6 +20,11 @@ module RPMContrib
     # starts and also adds the tracer to the process method which executes
     # in the forked task.
     module ResqueInstrumentation
+      def self.flush_metric_data
+        return if !NewRelic::Agent.agent.started? || NewRelic::Agent.agent.instance_variable_get(:@worker_loop).nil?
+        NewRelic::Agent.agent.instance_variable_get(:@worker_loop).run_task
+      end
+
       ::Resque::Job.class_eval do
         include NewRelic::Agent::Instrumentation::ControllerInstrumentation
         
@@ -36,7 +41,7 @@ module RPMContrib
           if ::RPMContrib::SUPPORTS_FORK
             NewRelic::Agent.shutdown unless defined?(::Resque.before_child_exit)
           else
-            NewRelic::Agent.agent.instance_variable_get(:@worker_loop).run_task unless defined?(::Resque.before_child_exit)
+            ::RPM::Contrib::Instrumentation::ResqueInstrumentation.flush_metric_data unless defined?(::Resque.before_child_exit)
           end
 
         end
@@ -47,7 +52,7 @@ module RPMContrib
           if ::RPMContrib::SUPPORTS_FORK
             NewRelic::Agent.shutdown
           else
-            NewRelic::Agent.agent.instance_variable_get(:@worker_loop).run_task
+            ::RPM::Contrib::Instrumentation::ResqueInstrumentation.flush_metric_data
           end
         end
       end
