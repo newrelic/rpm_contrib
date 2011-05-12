@@ -8,14 +8,14 @@ module RpmContrib
 
 
         ::Redis::Client.class_eval do
-          
+
           include NewRelic::Agent::MethodTracer
 
-          def self.redis_call_method                                                          
+          def self.redis_call_method
             ::Redis::Client.new.respond_to?(:call) ? :call : :raw_call_command
           end
 
-          
+
           def raw_call_command_with_newrelic_trace *args
             method_name = args[0].is_a?(Array) ? args[0][0] : args[0]
             metrics = ["Database/Redis/#{method_name}",
@@ -28,7 +28,7 @@ module RpmContrib
 
           alias_method :raw_call_command_without_newrelic_trace, redis_call_method
           alias_method redis_call_method, :raw_call_command_with_newrelic_trace
-          
+
         end
 
 

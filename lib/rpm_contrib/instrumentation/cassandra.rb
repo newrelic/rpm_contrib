@@ -5,7 +5,7 @@ module RpmContrib
       #
 
       if defined?(::Cassandra) and not  NewRelic::Control.instance['disable_cassandra_instrumentation']
-        
+
         ::Cassandra.class_eval do
           add_method_tracer :insert,               'Database/Cassandra/insert'
           add_method_tracer :remove,               'Database/Cassandra/remove'

@@ -7,7 +7,7 @@ module RpmContrib
         ::Workling::Base.class_eval do
           include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
         end
-        
+
         ::Workling::Discovery.discovered.each do |clazz|
           (clazz.public_instance_methods - ::Workling::Base.public_instance_methods).each do |method|
             puts "added method tracer Workling/#{clazz.name}/#{method}"

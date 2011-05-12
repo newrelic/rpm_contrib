@@ -27,7 +27,7 @@ module RPMContrib
 
       ::Resque::Job.class_eval do
         include NewRelic::Agent::Instrumentation::ControllerInstrumentation
-        
+
         old_perform_method = instance_method(:perform)
 
         define_method(:perform) do

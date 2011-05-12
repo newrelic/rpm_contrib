@@ -8,7 +8,7 @@ end
 require "#{File.dirname(__FILE__)}/../lib/rpm_contrib/instrumentation/redis"
 
 if defined?(::Redis)
-  
+
 
   class RedisTest < Test::Unit::TestCase
 
@@ -27,7 +27,7 @@ if defined?(::Redis)
 
     # Fake test
     def test_fail
-      
+
 
     end
   end

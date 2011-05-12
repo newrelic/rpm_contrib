@@ -32,22 +32,22 @@ module RPMContrib
     #	end
     #
     #
-    
+
     module Camping
-      
+
       def self.included(mod)
-        
+
         # Since the Camping::Base module is essentially copied
-        # into the main module (the mod passed in) of a Camping app 
+        # into the main module (the mod passed in) of a Camping app
         # using the Camping.goes :NewRelicCampingTest syntax
         # we need to evaluate "weld" the NewRelic plugin in the context of the new Base
-        
+
         (Kernel.const_get(mod.name)::Base).module_eval do
           include NewRelic::Agent::Instrumentation::ControllerInstrumentation
           add_transaction_tracer :service
         end
       end
-      
+
     end	#RPMContrib::Instrumentation::Camping
   end
 end

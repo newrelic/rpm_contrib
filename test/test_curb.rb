@@ -14,7 +14,7 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     assert_match /<head>/, curl.body_str
     assert_equal %w[External/www.google.com/Curl::Easy External/Curl::Multi
                     External/allOther External/www.google.com/all].sort,
-       @engine.metrics.sort 
+       @engine.metrics.sort
   end
 
   def test_multi
@@ -27,7 +27,7 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     assert_match /<head>/, curl1.body_str
     assert_match /<head>/, curl2.body_str
     assert_equal %w[External/Curl::Multi External/allOther].sort,
-       @engine.metrics.sort 
+       @engine.metrics.sort
   end
 
   def test_background
@@ -60,7 +60,7 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
       curl = Curl::Easy.new('http://www.google.com/index.html')
       curl.http_post('data')
     end
-    assert_equal 0, @engine.metrics.size 
+    assert_equal 0, @engine.metrics.size
   end
 
 end

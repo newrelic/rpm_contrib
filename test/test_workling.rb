@@ -8,7 +8,7 @@ end
 require "#{File.dirname(__FILE__)}/../lib/rpm_contrib/instrumentation/workling"
 
 if defined?(::Workling)
-  
+
 
   class WorklingTest < Test::Unit::TestCase
 
@@ -27,7 +27,7 @@ if defined?(::Workling)
 
     # Fake test
     def test_fail
-      
+
 
     end
   end
