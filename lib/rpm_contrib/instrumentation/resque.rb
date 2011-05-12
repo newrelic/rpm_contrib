@@ -9,10 +9,6 @@ module RPMContrib
       Resque.after_fork do
         NewRelic::Agent.after_fork(:force_reconnect => false)
       end
-
-      Resque.before_child_exit do
-        NewRelic::Agent.shutdown
-      end
     end
   end
 end if defined?(::Resque) and not NewRelic::Control.instance['disable_resque']
