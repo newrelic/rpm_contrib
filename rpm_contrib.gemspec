@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "1.0.14"
+  s.version = "2.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
@@ -34,8 +34,6 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     "lib/rpm_contrib/instrumentation/aws/s3.rb",
     "lib/rpm_contrib/instrumentation/camping.rb",
     "lib/rpm_contrib/instrumentation/cassandra.rb",
-    "lib/rpm_contrib/instrumentation/mongo_mapper.rb",
-    "lib/rpm_contrib/instrumentation/mongoid.rb",
     "lib/rpm_contrib/instrumentation/paperclip.rb",
     "lib/rpm_contrib/instrumentation/redis.rb",
     "lib/rpm_contrib/instrumentation/resque.rb",
