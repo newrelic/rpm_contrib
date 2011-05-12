@@ -26,8 +26,11 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     "Rakefile",
     "lib/new_relic/control/camping.rb",
     "lib/rpm_contrib.rb",
+    "lib/rpm_contrib/detection.rb",
     "lib/rpm_contrib/detection/camping.rb",
     "lib/rpm_contrib/detection/resque.rb",
+    "lib/rpm_contrib/instrumentation.rb",
+    "lib/rpm_contrib/instrumentation/aws.rb",
     "lib/rpm_contrib/instrumentation/aws/s3.rb",
     "lib/rpm_contrib/instrumentation/camping.rb",
     "lib/rpm_contrib/instrumentation/cassandra.rb",
@@ -58,12 +61,12 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<newrelic_rpm>, ["~> 3.1.0"])
+      s.add_runtime_dependency(%q<newrelic_rpm>, [">= 3.0.0"])
     else
-      s.add_dependency(%q<newrelic_rpm>, ["~> 3.1.0"])
+      s.add_dependency(%q<newrelic_rpm>, [">= 3.0.0"])
     end
   else
-    s.add_dependency(%q<newrelic_rpm>, ["~> 3.1.0"])
+    s.add_dependency(%q<newrelic_rpm>, [">= 3.0.0"])
   end
 end
 

@@ -16,13 +16,9 @@ module RPMContrib
   end
 
 end
-
 # Perform any framework/dispatcher detection before loading the rpm gem.
-raise "The rpm_contrib gem must be loaded before the newrelic_rpm gem." if defined?(::NewRelic)
-
-Dir.glob(RPM_CONTRIB_LIB + "/rpm_contrib/detection/**/*.rb") { |file| require file }
-
-require 'newrelic_rpm'
+require 'rpm_contrib/detection'
+raise "The rpm_contrib gem must be loaded before the newrelic_rpm gem." unless require 'newrelic_rpm'
 
 if defined? Rails
   # Rails 3.x+
