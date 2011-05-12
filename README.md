@@ -48,6 +48,13 @@ Both MongoMapper and Mongoid are supported.  You can disable them both by settin
 
 ### Resque
 
+Make sure that your jobs either inherit from Resque::Job or else include our instrumentation:
+
+class MyJob
+  require 'rpm_contrib/instrumentation/resque'
+  include Resque::Plugins::NewRelicInstrumentation
+end
+
 To disable resque, set 'disable_resque' to true in your newrelic.yml file.
 
 ### Redis
