@@ -1,3 +1,7 @@
+* Version 1.0.14
+
+  Updated to use the latest version of the Ruby Agent
+
 * Version 1.0.13
 
   Removed use of 'metaclass' - no longer available from ActiveSupport as of Rails 3
