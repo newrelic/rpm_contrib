@@ -19,7 +19,7 @@ module RPMContrib
     # Installs a hook to ensure the agent starts manually when the worker
     # starts and also adds the tracer to the process method which executes
     # in the forked task.
-    module ResqueInstrumentation
+    module Resque
       def self.flush_metric_data
         return if !NewRelic::Agent.agent.started? || NewRelic::Agent.agent.instance_variable_get(:@worker_loop).nil?
         NewRelic::Agent.agent.instance_variable_get(:@worker_loop).run_task

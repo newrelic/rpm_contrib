@@ -1,10 +1,18 @@
-require 'new_relic/agent/method_tracer.rb'
+require 'new_relic/agent/method_tracer'
 
-module Ultrasphinx
-  class Search
-    include NewRelic::Agent::MethodTracer
+module RpmContrib
+  module Instrumentation
+    module UltraSphinx
+      if defined?(::UltraSphinx)
+        module ::Ultrasphinx
+          class Search
+            include NewRelic::Agent::MethodTracer
 
-    add_method_tracer :run
-    add_method_tracer :results
+            add_method_tracer :run
+            add_method_tracer :results
+          end
+        end
+      end
+    end
   end
 end
