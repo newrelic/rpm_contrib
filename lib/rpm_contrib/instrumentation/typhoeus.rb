@@ -1,7 +1,7 @@
 module RpmContrib
   module Instrumentation
     module Typhoeus
-      if defined?(::Typhoeus)
+      if defined?(::Typhoeus) and not ::NewRelic::Control.instance['disable_typhoeus']
         require 'uri'
         module ::Typhoeus
           Request.instance_eval do

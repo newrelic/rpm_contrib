@@ -30,21 +30,54 @@ initialized.  No need for a separate require statement for `newrelic_rpm`.  The
 A number of frameworks are supported in the contrib gem.  They are all turned on
 by default but you can add settings to your newrelic.yml to disable any of them.
 
+### ActiveMQ
+
+The gem will detect the underlying ActiveMessaging::Processor class and instrument the `on_message` method
+
+It can be disabled with the `disable_active_mq` flag in your newrelic.yml file.
+
+### Cassandra
+
+The gem will instrument Cassandra so it should be visible in transaction traces and the web transactions page.
+
+You can disable it with `disable_cassandra_instrumentation` in your newrelic.yml file.
+
 ### Camping
 
 The gem will detect a Camping app but you need to manually add the
 instrumentation to your configuration file.  See RPMContrib::Instrumentation::Camping 
 for more information.
 
+### Crack
+
+The gem will instrument the Crack parsers for JSON and XML - you
+should see them in transaction traces and the web transactions page.
+
+You can disable it with `disable_crack` in your newrelic.yml file.
+
+### Curb
+
+The gem will instrument both Curl::Easy and Curl::Multi - they should show up similarly to Net::HTTP in the UI
+
+You can disable it with `disable_curb` in your newrelic.yml file.
+
+## Elastic Search
+
+The gem will instrument ElasticSearch::Client. The metrics should show up in the UI
+
+You can disable it with `disable_elastic_search_instrumentation` in your newrelic.yml file.
+
 ### Paperclip
 
-No special configuration required for Paperclip visibility.  You can disable
-it by setting `disable_paperclip` to true in the newrelic.yml file.
+No special configuration required for Paperclip visibility.  
+
+You can disable it by setting `disable_paperclip` to true in your newrelic.yml file.
 
 ### MongoDB
 
-Both MongoMapper and Mongoid are supported.  You can disable them both by setting
-'disable_mongodb' to true in the newrelic.yml file.
+Our instrumentation works on the underlying 'Mongo' library.  
+
+You can disable it by setting 'disable_mongodb' to true in your newrelic.yml file.
 
 ### Resque
 
@@ -63,8 +96,39 @@ To disable resque, set 'disable_resque' to true in your newrelic.yml file.
 
 Redis instrumentation will record operations as well as `allWeb` and `allOther`
 summary metrics under the `Database/Redis` metric namespace. This instrumentation
-supports Redis versions 1.x and 2.x. To disable Redis instrumentation, set
-'disable_redis' to true in your newrelic.yml file.
+supports Redis versions 1.x and 2.x. 
+
+To disable Redis instrumentation, set 'disable_redis' to true in your newrelic.yml file.
+
+### Sinatra view instrumentation
+
+This adds instrumentation to the `render` methods in Sinatra::Base
+
+You can disable it with `disable_sinatra_template` in your newrelic.yml file.
+
+### Typhoeus instrumentation
+
+This adds instrumentation to the Typhoeus::Request class for 'GET' requests
+
+You can disable it with `disable_typhoeus` in your newrelic.yml file.
+
+### Ultrasphinx instrumentation
+
+This adds basic instrumentation to the `run` and `results` method of Ultrasphinx::Search
+
+You can disable it with `disable_ultrasphinx` in your newrelic.yml file.
+
+### Workling
+
+This adds instrumentation to the Workling::Base and all children, for all defined public methods not inherited from the Workling::Base class
+
+You can disable it with `disable_workling` in your newrelic.yml file.
+
+### YAJL
+
+This adds instrumentation to the YAJL json parser
+
+You can disable it with `disable_yajl_instrumentation` in your newrelic.yml file.
 
 ### AWS/S3
 

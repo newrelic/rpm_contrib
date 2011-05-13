@@ -3,7 +3,7 @@ require 'new_relic/agent/method_tracer'
 module RpmContrib
   module Instrumentation
     module UltraSphinx
-      if defined?(::UltraSphinx)
+      if defined?(::UltraSphinx) and not ::NewRelic::Control.instance['disable_ultrasphinx']
         module ::Ultrasphinx
           class Search
             include NewRelic::Agent::MethodTracer
