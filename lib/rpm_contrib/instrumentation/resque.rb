@@ -24,7 +24,7 @@ module RPMContrib
       end
 
       ::Resque::Job.class_eval do
-        include Resque::Plugins::NewRelicInstrumentation
+        include ::Resque::Plugins::NewRelicInstrumentation
       end
     end
   end
