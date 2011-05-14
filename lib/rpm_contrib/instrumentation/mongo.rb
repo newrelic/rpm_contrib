@@ -25,8 +25,23 @@ module RpmContrib
           alias_method :instrument_without_newrelic_trace, :instrument
           alias_method :instrument, :instrument_with_newrelic_trace
         end
-      end
 
+        ::Mongo::Cursor.class_eval do
+          include NewRelic::Agent::MethodTracer
+
+          def refresh_with_newrelic_trace
+            return if send_initial_query || @cursor_id.zero? # don't double report the initial query
+
+            trace_execution_scoped("Database/#{collection.name}/refresh") do
+              refresh_without_newrelic_trace
+            end
+          end
+
+          alias_method :refresh_without_newrelic_trace, :refresh
+          alias_method :refresh, :refresh_with_newrelic_trace
+          add_method_tracer :close, 'Database/#{collection.name}/close'
+        end
+      end
     end
   end
 end
