@@ -1,3 +1,8 @@
+* Version 2.1.1
+  
+  Fix namespacing problem with Resque
+  Add instrumentation to Mongo::Cursor #refresh and #close - thanks to Chris Griego
+
 * Version 2.1.0
 
   Included instrumentation from the community:
