@@ -7,6 +7,8 @@ module Resque
         perform_action_with_newrelic_trace(:name => 'perform', :class_name => class_name, :category => 'OtherTransaction/ResqueJob') do
           yield(*args)
         end
+
+        NewRelic::Agent.shutdown
       end
     end
   end
