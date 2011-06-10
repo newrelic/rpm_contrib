@@ -84,9 +84,13 @@ You can disable it by setting 'disable_mongodb' to true in your newrelic.yml fil
 Make sure that your jobs either inherit from Resque::Job or else include our instrumentation:
 
 ```ruby
+require 'rpm_contrib/instrumentation/resque'
 class MyJob
-  require 'rpm_contrib/instrumentation/resque'
-  include Resque::Plugins::NewRelicInstrumentation
+  extend Resque::Plugins::NewRelicInstrumentation
+
+  def self.perform(*args)
+    # perform your job here...
+  end
 end
 ```
 
