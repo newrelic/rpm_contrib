@@ -1,25 +1,28 @@
-module RpmContrib
-  module Instrumentation
-    module Crack
+DependencyDetection.defer do
+  depends_on do
+    defined?(::Crack::JSON) && !NewRelic::Control.instance['disable_crack']
+  end
 
-      if defined?(::Crack) && !NewRelic::Control.instance['disable_crack']
-        if defined?(::Crack::JSON)
-          ::Crack::JSON.class_eval do
-            class << self
-              include NewRelic::Agent::MethodTracer
-              add_method_tracer :parse, 'Parser/#{self.name}/parse'
-            end
-          end
-        end
+  executes do
+    ::Crack::JSON.class_eval do
+      class << self
+        include NewRelic::Agent::MethodTracer
+        add_method_tracer :parse, 'Parser/#{self.name}/parse'
+      end
+    end
+  end
+end
 
-        if defined?(::Crack::XML)
-          ::Crack::XML.class_eval do
-            class << self
-              include NewRelic::Agent::MethodTracer
-              add_method_tracer :parse, 'Parser/#{self.name}/parse'
-            end
-          end
-        end
+DependencyDetection.defer do
+  depends_on do
+    defined?(::Crack::XML) && !NewRelic::Control.instance['disable_crack']
+  end
+
+  executes do
+    ::Crack::XML.class_eval do
+      class << self
+        include NewRelic::Agent::MethodTracer
+        add_method_tracer :parse, 'Parser/#{self.name}/parse'
       end
     end
   end

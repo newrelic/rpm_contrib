@@ -2,38 +2,33 @@ RPM_CONTRIB_LIB = File.dirname(__FILE__)
 
 module RPMContrib
   VERSION = File.read(RPM_CONTRIB_LIB+"/../CHANGELOG")[/Version ([\d\.]+)$/, 1]
-
-  def self.init_sequence
-    Proc.new do
-      # Tell the agent to load all the files in the
-      # rpm_contrib/instrumentation directory.
-      NewRelic::Agent.add_instrumentation(RPM_CONTRIB_LIB+"/rpm_contrib/instrumentation/**/*.rb")
-
-      # Load all the Sampler class definitions.  These will register
-      # automatically with the agent.
-      Dir.glob(RPM_CONTRIB_LIB + "/rpm_contrib/samplers/**/*.rb") { |file| require file }
-    end
-  end
-
 end
 # Perform any framework/dispatcher detection before loading the rpm gem.
 require 'rpm_contrib/detection'
 puts "Warning! The rpm_contrib gem should be loaded before the newrelic_rpm gem if you are using Resque or Camping." if defined?(::NewRelic) && defined?(::NewRelic::Control)
+
 require 'newrelic_rpm'
+require 'rpm_contrib/instrumentation'
 if defined? Rails
   # Rails 3.x+
   if Rails.respond_to?(:version) && Rails.version =~ /^3/
     module NewRelic
       class Railtie < Rails::Railtie
-        initializer("rpm_contrib.start_plugin", &RPMContrib.init_sequence)
+        initializer("rpm_contrib.start_plugin"){ NewRelic::Control.instance.init_plugin }
       end
     end
   # Rails 2.x
   elsif defined?(Rails) && Rails.respond_to?(:configuration)
-    Rails.configuration.after_initialize &RPMContrib.init_sequence
+    
+    Rails.configuration.after_initialize { NewRelic::Control.instance.init_plugin }
   else
     raise "The rpm_contrib gem supports Rails 2.2+ only."
   end
 else
-  RPMContrib.init_sequence.call
+  # If not running Rails, it is important that you load the contrib gem as late 
+  # as possible so the agent initializes after everything else.  Either that 
+  # or make the following call yourself at the end of your startup sequence
+  # (it is idempotent).
+  NewRelic::Control.instance.init_plugin 
 end
+
