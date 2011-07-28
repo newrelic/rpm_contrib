@@ -9,6 +9,11 @@ puts "Warning! The rpm_contrib gem should be loaded before the newrelic_rpm gem 
 
 require 'newrelic_rpm'
 require 'rpm_contrib/instrumentation'
+
+# Load all the Sampler class definitions.  These will register
+# automatically with the agent.
+require 'rpm_contrib/samplers'
+
 if defined? Rails
   # Rails 3.x+
   if Rails.respond_to?(:version) && Rails.version =~ /^3/
