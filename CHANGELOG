@@ -1,3 +1,10 @@
+* Version 2.1.4
+
+  Updated requirements to latest agent with some bug fixes for background jobs
+  Converted instrumentation to install with DependencyDetection in the latest Agent
+  Changed Resque instrumentation from a plugin back to method chaining
+  Fixed several reported bugs related to resque
+  
 * Version 2.1.3
 
   Fixed typo in Resque instrumentation
