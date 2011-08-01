@@ -5,7 +5,9 @@ module RPMContrib
 end
 # Perform any framework/dispatcher detection before loading the rpm gem.
 require 'rpm_contrib/detection'
-puts "Warning! The rpm_contrib gem should be loaded before the newrelic_rpm gem if you are using Resque or Camping." if defined?(::NewRelic) && defined?(::NewRelic::Control)
+if defined?(::NewRelic) && defined?(::NewRelic::Control)
+  puts "Warning! The rpm_contrib gem should be loaded before the newrelic_rpm gem if you are using Resque or Camping." 
+end
 
 require 'newrelic_rpm'
 require 'rpm_contrib/instrumentation'
