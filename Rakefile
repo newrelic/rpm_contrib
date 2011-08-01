@@ -3,7 +3,7 @@ require 'rake'
 # See http://www.rubygems.org/read/chapter/20 
 
 def version
-  @rpm_contrib_version ||= File.read("CHANGELOG")[/Version ([\d\.]+)$/, 1]
+  @rpm_contrib_version ||= File.read("CHANGELOG")[/Version ([\d\.]+\w*)$/, 1]
 end
 
 RDOC_FILES = FileList['README*','LICENSE','CHANGELOG']

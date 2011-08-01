@@ -1,4 +1,4 @@
-* Version 2.1.4
+* Version 2.1.4.beta
 
   Updated requirements to latest agent with some bug fixes for background jobs
   Converted instrumentation to install with DependencyDetection in the latest Agent

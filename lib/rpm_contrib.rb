@@ -1,8 +1,7 @@
 RPM_CONTRIB_LIB = File.dirname(__FILE__)
 
-module RPMContrib
-  VERSION = File.read(RPM_CONTRIB_LIB+"/../CHANGELOG")[/Version ([\d\.]+)$/, 1]
-end
+module RPMContrib; end
+
 # Perform any framework/dispatcher detection before loading the rpm gem.
 require 'rpm_contrib/detection'
 if defined?(::NewRelic) && defined?(::NewRelic::Control)
