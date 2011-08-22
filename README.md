@@ -7,13 +7,19 @@ To use the rpm_contrib gem, install the `rpm_contrib` gem from rubygems.org.
 It will also install the required version of the `newrelic_rpm` gem if it's not
 already installed.
 
-For Rails 3.0 and later, add this dependency to your Gemfile:
+For Rails 3.0 and when using Bundler, add these dependencies to your Gemfile:
 
     gem 'rpm_contrib'
+    gem 'newrelic_rpm'
 
-For Rails 2.1 and later, add this dependency to your in your environment.rb:
+For some frameworks, it's important that the contrib gem is loaded
+before the newrelic_rpm gem.  We hope to remove that unfortunate
+requirement in the future.
+
+For Rails 2.1 and later, add these dependencies to your in your environment.rb:
 
     config.gem 'rpm_contrib'
+    config.gem 'newrelic_rpm'
 
 For other frameworks, make sure you load rubygems if it isn't already, then just
 require the rpm_contrib gem:
@@ -22,8 +28,13 @@ require the rpm_contrib gem:
     require 'rpm_contrib'
 
 When you load the rpm_contrib gem, the `newrelic_rpm` gem will also be
-initialized.  No need for a separate require statement for `newrelic_rpm`.  The
-`rpm_contrib` gem must be loaded before the `newrelic_rpm` gem initializes.
+initialized.  No need for a separate require statement for `newrelic_rpm`. 
+
+In non-Rails frameworks, it's important that the New Relic Agent gets
+loaded as late as possible, or that the final initialization hook is called 
+after all other frameworks have loaded:
+
+    DependencyDetection.detect!
 
 # Supported Frameworks
 
@@ -81,18 +92,9 @@ You can disable it by setting 'disable_mongodb' to true in your newrelic.yml fil
 
 ### Resque
 
-Make sure that your jobs either inherit from Resque::Job or else include our instrumentation:
-
-```ruby
-require 'rpm_contrib/instrumentation/resque'
-class MyJob
-  extend Resque::Plugins::NewRelicInstrumentation
-
-  def self.perform(*args)
-    # perform your job here...
-  end
-end
-```
+To instrument jobs you no longer need to have your Job class inherit from Resque::Job or include 
+the Resque::Plugins::NewRelicInstrumentation module.  The module definition was left in for 
+backward compatibility.
 
 To disable resque, set 'disable_resque' to true in your newrelic.yml file.
 
