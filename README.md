@@ -36,7 +36,16 @@ after all other frameworks have loaded:
 
     DependencyDetection.detect!
 
-# Supported Frameworks
+### Troubleshooting Startup
+
+If you've set up your gems to load as described above and you are still not seeing 
+data in RPM, try setting the environment variable `NEWRELIC_DISPATCHER` to the name
+of your app server (Camping, Resque, Rake, etc).  
+
+If this does not help then set the `log_level` to `debug` in the `newrelic.yml` file
+and examine the `newrelic_agent.log` file for errors after restarting your app.
+
+## Supported Frameworks
 
 A number of frameworks are supported in the contrib gem.  They are all turned on
 by default but you can add settings to your newrelic.yml to disable any of them.
