@@ -1,7 +1,7 @@
 DependencyDetection.defer do
 
   depends_on do
-    defined?(::UltraSphinx) and not ::NewRelic::Control.instance['disable_ultrasphinx']
+    defined?(::Ultrasphinx) and not ::NewRelic::Control.instance['disable_ultrasphinx']
   end
 
   executes do
