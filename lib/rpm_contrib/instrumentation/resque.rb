@@ -54,7 +54,7 @@ DependencyDetection.defer do
     end
 
     ::Resque.before_first_fork do
-      NewRelic::Agent.manual_start(:dispatcher => :resque)
+      NewRelic::Agent.manual_start(:dispatcher => :resque, :sync_startup => true)
     end
 
     ::Resque.after_fork do

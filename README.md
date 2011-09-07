@@ -12,10 +12,6 @@ For Rails 3.0 and when using Bundler, add these dependencies to your Gemfile:
     gem 'rpm_contrib'
     gem 'newrelic_rpm'
 
-For some frameworks, it's important that the contrib gem is loaded
-before the newrelic_rpm gem.  We hope to remove that unfortunate
-requirement in the future.
-
 For Rails 2.1 and later, add these dependencies to your in your environment.rb:
 
     config.gem 'rpm_contrib'
@@ -39,8 +35,10 @@ after all other frameworks have loaded:
 ### Troubleshooting Startup
 
 If you've set up your gems to load as described above and you are still not seeing 
-data in RPM, try setting the environment variable `NEWRELIC_DISPATCHER` to the name
-of your app server (Camping, Resque, Rake, etc).  
+data in RPM, there may be a bug in detecting your framework.  Try setting the 
+environment variable `NEWRELIC_DISPATCHER` to the name of your app server (Camping, 
+Resque, Rake, etc), and please report to us if this fixes the problem so we can
+fix the auto-detection logic.
 
 If this does not help then set the `log_level` to `debug` in the `newrelic.yml` file
 and examine the `newrelic_agent.log` file for errors after restarting your app.
@@ -65,8 +63,11 @@ You can disable it with `disable_cassandra_instrumentation` in your newrelic.yml
 ### Camping
 
 The gem will detect a Camping app but you need to manually add the
-instrumentation to your configuration file.  See RPMContrib::Instrumentation::Camping 
-for more information.
+instrumentation to your configuration file.  See
+RPMContrib::Instrumentation::Camping for more information. 
+
+In addition you will need to load the gems in the following order: 1) Camping, 2) rpm_contrib,
+3) newrelic_rpm.
 
 ### Crack
 

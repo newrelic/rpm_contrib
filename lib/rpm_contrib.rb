@@ -2,11 +2,7 @@ RPM_CONTRIB_LIB = File.dirname(__FILE__)
 
 module RPMContrib; end
 
-# Perform any framework/dispatcher detection before loading the rpm gem.
 require 'rpm_contrib/detection'
-if defined?(::NewRelic) && defined?(::NewRelic::Control)
-  puts "Warning! The rpm_contrib gem should be loaded before the newrelic_rpm gem if you are using Resque or Camping." 
-end
 
 require 'newrelic_rpm'
 require 'rpm_contrib/instrumentation'
@@ -25,7 +21,6 @@ if defined? Rails
     end
   # Rails 2.x
   elsif defined?(Rails) && Rails.respond_to?(:configuration)
-    
     Rails.configuration.after_initialize { NewRelic::Control.instance.init_plugin }
   else
     raise "The rpm_contrib gem supports Rails 2.2+ only."

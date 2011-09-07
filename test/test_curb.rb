@@ -1,5 +1,8 @@
 require "#{File.dirname(__FILE__)}/helper"
-require 'curb'
+begin
+require 'curb' 
+rescue LoadError
+end
 
 class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
   include NewRelic::Agent::Instrumentation::ControllerInstrumentation
@@ -63,4 +66,4 @@ class NewRelic::Agent::NetInstrumentationTest < Test::Unit::TestCase
     assert_equal 0, @engine.metrics.size
   end
 
-end
+end if defined? ::Curl::Easy
