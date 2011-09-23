@@ -3,6 +3,8 @@
 # Blue-Dog-Archolite @ GitHub
 
 DependencyDetection.defer do
+  @name = :active_mq
+  
   depends_on do
     defined?(::ActiveMessaging::Processor) && !NewRelic::Control.instance['disable_active_mq']
   end

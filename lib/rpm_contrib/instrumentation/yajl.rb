@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :yajl_parser
+  
   depends_on do
     defined?(::Yajl::Parser) && !NewRelic::Control.instance['disable_yajl_instrumentation']
   end
@@ -18,6 +20,8 @@ DependencyDetection.defer do
 end
 
 DependencyDetection.defer do
+  @name = :yajl_encoder
+  
   depends_on do
     defined?(::Yajl::Encoder) && !NewRelic::Control.instance['disable_yajl_instrumentation']
   end

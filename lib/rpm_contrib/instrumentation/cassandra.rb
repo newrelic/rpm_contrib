@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :cassandra
+  
   depends_on do
     defined?(::Cassandra) && !NewRelic::Control.instance['disable_cassandra_instrumentation']
   end

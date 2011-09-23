@@ -5,6 +5,7 @@ module RPMContrib; end
 require 'rpm_contrib/detection'
 
 require 'newrelic_rpm'
+require 'rpm_contrib/agent_compatibility'
 require 'rpm_contrib/instrumentation'
 
 # Load all the Sampler class definitions.  These will register

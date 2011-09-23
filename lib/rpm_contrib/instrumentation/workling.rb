@@ -1,6 +1,8 @@
 # Workling instrumentation contributed by Chad Ingram of Aurora Feint
 #
 DependencyDetection.defer do
+  @name = :workling
+  
   depends_on do
     defined?(::Workling) and not ::NewRelic::Control.instance['disable_workling']
   end

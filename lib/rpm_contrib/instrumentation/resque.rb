@@ -30,6 +30,8 @@ module RPMContrib::Instrumentation::ResqueInstrumentationInstaller
 end
 
 DependencyDetection.defer do
+  @name = :resque
+  
   depends_on do
     defined?(::Resque::Job) and not NewRelic::Control.instance['disable_resque']
   end

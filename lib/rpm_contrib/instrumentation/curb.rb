@@ -1,5 +1,6 @@
 DependencyDetection.defer do
-
+  @name = :curb
+  
   depends_on do
     defined?(::Curl) and not NewRelic::Control.instance['disable_curb']
   end

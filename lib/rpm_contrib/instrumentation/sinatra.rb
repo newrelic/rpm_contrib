@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :sinatra_view
+  
   depends_on do
     defined?(::Sinatra::Base) and not NewRelic::Control.instance['disable_sinatra_template']
   end

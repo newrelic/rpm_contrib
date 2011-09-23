@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :crack_json
+
   depends_on do
     defined?(::Crack::JSON) && !NewRelic::Control.instance['disable_crack']
   end
@@ -18,6 +20,8 @@ DependencyDetection.defer do
 end
 
 DependencyDetection.defer do
+  @name = :crack_xml
+  
   depends_on do
     defined?(::Crack::XML) && !NewRelic::Control.instance['disable_crack']
   end

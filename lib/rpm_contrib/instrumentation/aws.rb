@@ -1,6 +1,7 @@
 # AWS Instrumentation by Brian Doll of New Relic
 DependencyDetection.defer do
-
+  @name = :aws
+  
   depends_on do
     defined?(::AWS::S3) && !NewRelic::Control.instance['disable_aws-s3']
   end

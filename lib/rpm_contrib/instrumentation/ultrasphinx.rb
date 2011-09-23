@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :ultrasphinx
+    
   depends_on do
     defined?(::Ultrasphinx) and not ::NewRelic::Control.instance['disable_ultrasphinx']
   end

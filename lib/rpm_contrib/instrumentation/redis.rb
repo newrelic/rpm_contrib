@@ -1,6 +1,8 @@
 # Redis instrumentation contributed by Ashley Martens of ngmoco
 #
 DependencyDetection.defer do
+  @name = :redis
+
   depends_on do
     defined?(::Redis) && !NewRelic::Control.instance['disable_redis']
   end

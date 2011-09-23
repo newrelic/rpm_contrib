@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :paperclip
+  
   depends_on do
     defined?(::Paperclip) && !NewRelic::Control.instance['disable_paperclip']
   end

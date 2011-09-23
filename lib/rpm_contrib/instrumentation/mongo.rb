@@ -1,5 +1,7 @@
 # Mongo Instrumentation contributed by Alexey Palazhchenko
 DependencyDetection.defer do
+  @name = :mongodb
+  
   depends_on do
     defined?(::Mongo) and not NewRelic::Control.instance['disable_mongodb']
   end

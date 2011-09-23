@@ -1,4 +1,6 @@
 DependencyDetection.defer do
+  @name = :typhoeus
+  
   depends_on do
     defined?(::Typhoeus) and not ::NewRelic::Control.instance['disable_typhoeus']
   end

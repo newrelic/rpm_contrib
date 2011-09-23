@@ -1,6 +1,8 @@
 # == Elastic Search Instrumentation
 #
 DependencyDetection.defer do
+  @name = :elastic_search
+  
   depends_on do
     defined?(::ElasticSearch::Client) && !NewRelic::Control.instance['disable_elastic_search_instrumentation']
   end
