@@ -1,4 +1,5 @@
 require 'rubygems'
+require "bundler/setup"
 require 'rake'
 # See http://www.rubygems.org/read/chapter/20 
 
