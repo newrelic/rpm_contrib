@@ -2,7 +2,11 @@ DependencyDetection.defer do
   depends_on do
     defined?(::Paperclip) && !NewRelic::Control.instance['disable_paperclip']
   end
-
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Paperclip instrumentation'
+  end
+  
   executes do
     ::Paperclip::Attachment.class_eval do
       add_method_tracer :save, 'Paperclip/#{name}/save'

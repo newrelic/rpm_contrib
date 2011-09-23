@@ -1,13 +1,15 @@
 # Workling instrumentation contributed by Chad Ingram of Aurora Feint
 #
 DependencyDetection.defer do
-
   depends_on do
     defined?(::Workling) and not ::NewRelic::Control.instance['disable_workling']
   end
 
   executes do
-    
+    NewRelic::Agent.logger.debug 'Installing Workling instrumentation'
+  end
+
+  executes do
     ::Workling::Base.class_eval do
       include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
     end

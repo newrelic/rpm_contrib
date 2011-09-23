@@ -3,7 +3,11 @@ DependencyDetection.defer do
   depends_on do
     defined?(::Curl) and not NewRelic::Control.instance['disable_curb']
   end
-
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Curb instrumentation'
+  end
+  
   executes do
     ::Curl::Easy.class_eval do
       def host

@@ -4,7 +4,11 @@ DependencyDetection.defer do
   depends_on do
     defined?(::ElasticSearch::Client) && !NewRelic::Control.instance['disable_elastic_search_instrumentation']
   end
-
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Elastic Search instrumentation'
+  end
+  
   executes do
     ::ElasticSearch::Client.class_eval do
       add_method_tracer :index,  'ActiveRecord/ElasticSearch/index'

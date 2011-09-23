@@ -2,7 +2,11 @@ DependencyDetection.defer do
   depends_on do
     defined?(::Crack::JSON) && !NewRelic::Control.instance['disable_crack']
   end
-
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Crack::JSON instrumentation'
+  end
+  
   executes do
     ::Crack::JSON.class_eval do
       class << self
@@ -17,7 +21,11 @@ DependencyDetection.defer do
   depends_on do
     defined?(::Crack::XML) && !NewRelic::Control.instance['disable_crack']
   end
-
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Crack::XML instrumentation'
+  end
+  
   executes do
     ::Crack::XML.class_eval do
       class << self

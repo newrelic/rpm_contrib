@@ -4,9 +4,13 @@ DependencyDetection.defer do
   depends_on do
     defined?(::AWS::S3) && !NewRelic::Control.instance['disable_aws-s3']
   end
-
+  
   executes do
+    NewRelic::Agent.logger.debug 'Installing AWS instrumentation'
+  end
 
+  
+  executes do
     # Instrument connections to the AWS-S3 service
     ::AWS::S3::Connection::Management::ClassMethods.module_eval do
       add_method_tracer :establish_connection!, 'AWS-S3/establish_connection!'

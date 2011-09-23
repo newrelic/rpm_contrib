@@ -1,9 +1,12 @@
 DependencyDetection.defer do
-
   depends_on do
     defined?(::Typhoeus) and not ::NewRelic::Control.instance['disable_typhoeus']
   end
-
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Typhoeus instrumentation'
+  end
+  
   executes do
     require 'uri'
     ::Typhoeus::Request.instance_eval do

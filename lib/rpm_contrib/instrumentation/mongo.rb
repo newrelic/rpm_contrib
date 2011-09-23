@@ -1,9 +1,12 @@
 # Mongo Instrumentation contributed by Alexey Palazhchenko
 DependencyDetection.defer do
-
   depends_on do
     defined?(::Mongo) and not NewRelic::Control.instance['disable_mongodb']
   end
+
+  executes do
+    NewRelic::Agent.logger.debug 'Installing MongoDB instrumentation'
+  end  
 
   executes do
     ::Mongo::Connection.class_eval do

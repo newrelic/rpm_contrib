@@ -4,6 +4,10 @@ DependencyDetection.defer do
   end
 
   executes do
+    NewRelic::Agent.logger.debug 'Installing Yajl::Parser instrumentation'
+  end  
+
+  executes do
     ::Yajl::Parser.class_eval do
       class << self
         include ::NewRelic::Agent::MethodTracer
@@ -16,6 +20,10 @@ end
 DependencyDetection.defer do
   depends_on do
     defined?(::Yajl::Encoder) && !NewRelic::Control.instance['disable_yajl_instrumentation']
+  end
+
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Yajl::Encoder instrumentation'
   end
 
   executes do

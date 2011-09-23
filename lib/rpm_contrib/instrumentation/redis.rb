@@ -1,9 +1,12 @@
 # Redis instrumentation contributed by Ashley Martens of ngmoco
 #
 DependencyDetection.defer do
-
   depends_on do
     defined?(::Redis) && !NewRelic::Control.instance['disable_redis']
+  end
+
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Redis instrumentation'
   end
 
   executes do

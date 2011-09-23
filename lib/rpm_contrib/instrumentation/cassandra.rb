@@ -2,6 +2,11 @@ DependencyDetection.defer do
   depends_on do
     defined?(::Cassandra) && !NewRelic::Control.instance['disable_cassandra_instrumentation']
   end
+  
+  executes do
+    NewRelic::Agent.logger.debug 'Installing Cassandra instrumentation'
+  end
+
   executes do
     ::Cassandra.class_eval do
       add_method_tracer :insert,               'Database/Cassandra/insert'
