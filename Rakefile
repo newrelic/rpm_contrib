@@ -22,7 +22,7 @@ begin
     gem.description = DESCRIPTION
     gem.email = "support@newrelic.com"
     gem.homepage = "http://github.com/newrelic/rpm_contrib"
-    gem.author = "Bill Kayser"
+    gem.authors = [ "Bill Kayser", "Jon Guymon" ]
     gem.add_dependency 'newrelic_rpm', '>=3.1.1'
     gem.version = version
     gem.files = FileList['LICENSE', 'README*', 'lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a

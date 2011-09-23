@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpm_contrib}
-  s.version = "2.1.5"
+  s.version = "2.1.6.beta1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Bill Kayser"]
-  s.date = %q{2011-09-07}
+  s.authors = ["Bill Kayser", "Jon Guymon"]
+  s.date = %q{2011-09-23}
   s.description = %q{Community contributed instrumentation for various frameworks based on
 the New Relic Ruby monitoring gem newrelic_rpm.
 }
@@ -26,6 +26,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     "Rakefile",
     "lib/new_relic/control/camping.rb",
     "lib/rpm_contrib.rb",
+    "lib/rpm_contrib/agent_compatibility.rb",
     "lib/rpm_contrib/detection.rb",
     "lib/rpm_contrib/detection/camping.rb",
     "lib/rpm_contrib/instrumentation.rb",
@@ -45,11 +46,13 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     "lib/rpm_contrib/instrumentation/ultrasphinx.rb",
     "lib/rpm_contrib/instrumentation/workling.rb",
     "lib/rpm_contrib/instrumentation/yajl.rb",
+    "lib/rpm_contrib/language_support.rb",
     "lib/rpm_contrib/samplers.rb",
     "test/helper.rb",
     "test/schema.rb",
     "test/test_curb.rb",
     "test/test_redis.rb",
+    "test/test_resque.rb",
     "test/test_workling.rb"
   ]
   s.homepage = %q{http://github.com/newrelic/rpm_contrib}
@@ -63,10 +66,13 @@ the New Relic Ruby monitoring gem newrelic_rpm.
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<newrelic_rpm>, [">= 3.1.1"])
+      s.add_runtime_dependency(%q<newrelic_rpm>, [">= 3.1.1"])
     else
+      s.add_dependency(%q<newrelic_rpm>, [">= 3.1.1"])
       s.add_dependency(%q<newrelic_rpm>, [">= 3.1.1"])
     end
   else
+    s.add_dependency(%q<newrelic_rpm>, [">= 3.1.1"])
     s.add_dependency(%q<newrelic_rpm>, [">= 3.1.1"])
   end
 end

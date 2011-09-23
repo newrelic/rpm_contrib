@@ -7,3 +7,7 @@ group :test do
   gem 'json'
   gem 'mocha'
 end
+
+group :build do
+  gem 'jeweler'
+end
