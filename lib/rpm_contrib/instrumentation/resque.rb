@@ -20,11 +20,15 @@ module Resque
   end
 end
 
-module RPMContrib::Instrumentation::ResqueInstrumentationInstaller
-  def payload_class
-    klass = super
-    klass.instance_eval do
-      extend ::Resque::Plugins::NewRelicInstrumentation
+module RPMContrib
+  module Instrumentation
+    module ResqueInstrumentationInstaller
+      def payload_class
+        klass = super
+        klass.instance_eval do
+          extend ::Resque::Plugins::NewRelicInstrumentation
+        end
+      end
     end
   end
 end
