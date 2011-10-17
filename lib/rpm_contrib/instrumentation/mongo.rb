@@ -37,8 +37,6 @@ DependencyDetection.defer do
       include NewRelic::Agent::MethodTracer
 
       def refresh_with_newrelic_trace
-        return if send_initial_query || @cursor_id.zero? # don't double report the initial query
-
         trace_execution_scoped("Database/#{collection.name}/refresh") do
           refresh_without_newrelic_trace
         end
