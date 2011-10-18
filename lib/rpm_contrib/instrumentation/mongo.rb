@@ -32,6 +32,9 @@ DependencyDetection.defer do
       alias_method :instrument_without_newrelic_trace, :instrument
       alias_method :instrument, :instrument_with_newrelic_trace
     end
+    class Mongo::Collection; include Mongo::Logging; end
+    class Mongo::Connection; include Mongo::Logging; end
+    class Mongo::Cursor; include Mongo::Logging; end
 
     # cursor refresh is not currently instrumented in mongo driver, so not picked up by above - have to add our own here
     ::Mongo::Cursor.class_eval do
