@@ -10,12 +10,24 @@ DependencyDetection.defer do
   end
 
   executes do
-    ::Riak::Client::BeefcakeProtobuffsBackend.class_eval do
+    backend_tracers = proc do
+      add_method_tracer :ping, 'Database/Riak/ping'
+      add_method_tracer :get_client_id, 'Database/Riak/get_client_id'
+      add_method_tracer :server_info, 'Database/Riak/server_info'
+      add_method_tracer :list_buckets, 'Database/Riak/list_buckets'
+
+      add_method_tracer :set_client_id, 'Database/Riak/set_client_id'
       add_method_tracer :fetch_object, 'Database/Riak/fetch_object'
       add_method_tracer :reload_object, 'Database/Riak/reload_object'
       add_method_tracer :store_object, 'Database/Riak/store_object'
       add_method_tracer :delete_object, 'Database/Riak/delete_object'
+      add_method_tracer :get_bucket_props, 'Database/Riak/get_bucket_props'
+      add_method_tracer :set_bucket_props, 'Database/Riak/set_bucket_props'
       add_method_tracer :list_keys, 'Database/Riak/list_keys'
+      add_method_tracer :mapred, 'Database/Riak/mapred'
     end
+
+    ::Riak::Client::BeefcakeProtobuffsBackend.class_eval &backend_tracers
+    ::Riak::Client::HTTPBackend.class_eval &backend_tracers
   end
 end
