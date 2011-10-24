@@ -40,5 +40,9 @@ DependencyDetection.defer do
       add_method_tracer :search, 'Database/Riak/search'
       add_method_tracer :update_search_index, 'Database/Riak/update_search_index'
     end
+
+    ::Riak::RObject.class_eval do
+      add_method_tracer :serialize, 'Database/Riak/serialize'
+    end
   end
 end
