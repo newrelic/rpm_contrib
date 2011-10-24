@@ -20,5 +20,10 @@ DependencyDetection.defer do
       add_method_tracer :reload, 'Database/Riak/Ripple/reload'
       add_method_tracer :delete, 'Database/Riak/Ripple/delete'
     end
+
+    ::Ripple::Document::Finders::ClassMethods.class_eval do
+      add_method_tracer :find, 'Database/Riak/Ripple/find'
+      add_method_tracer :list, 'Database/Riak/Ripple/list'
+    end
   end
 end
