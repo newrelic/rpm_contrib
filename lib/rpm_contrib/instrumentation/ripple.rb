@@ -11,6 +11,10 @@ DependencyDetection.defer do
   end
 
   executes do
+    ::Ripple::Callbacks::InstanceMethods.class_eval do
+      add_method_tracer :valid?, 'Database/Riak/Ripple/valid?'
+    end
+
     ::Ripple::Document::Persistence::InstanceMethods.class_eval do
       add_method_tracer :really_save, 'Database/Riak/Ripple/really_save'
       add_method_tracer :reload, 'Database/Riak/Ripple/reload'
