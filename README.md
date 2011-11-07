@@ -48,11 +48,11 @@ and examine the `newrelic_agent.log` file for errors after restarting your app.
 A number of frameworks are supported in the contrib gem.  They are all turned on
 by default but you can add settings to your newrelic.yml to disable any of them.
 
-### ActiveMQ
+### ActiveMessaging
 
 The gem will detect the underlying ActiveMessaging::Processor class and instrument the `on_message` method
 
-It can be disabled with the `disable_active_mq` flag in your newrelic.yml file.
+It can be disabled with the `disable_active_messaging` flag in your newrelic.yml file.
 
 ### Cassandra
 
