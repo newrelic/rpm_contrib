@@ -10,11 +10,11 @@ DependencyDetection.defer do
   end
   
   executes do
-    class  ::ThinkingSphinx::Search
+    class ::ThinkingSphinx::Search
       include NewRelic::Agent::MethodTracer
 
-      add_method_tracer :populate
-      add_method_tracer :search
+      add_method_tracer :initialize
+      add_method_tracer :results
     end
   end
 end
