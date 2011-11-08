@@ -122,6 +122,20 @@ supports Redis versions 1.x and 2.x.
 
 To disable Redis instrumentation, set 'disable_redis' to true in your newrelic.yml file.
 
+### Riak
+
+RiakClient is instrumented.  Its opereations are recorded under Database in the
+the response time graph.
+
+To disable Riak instrumentation, set 'disable_riak_client' to true in your newrelic.yml file.
+
+### Ripple
+
+Ripple is instrumented.  Its opereations are recorded under Database in the
+the response time graph.
+
+To disable Riak instrumentation, set 'disable_ripple' to true in your newrelic.yml file.
+
 ### Sinatra view instrumentation
 
 This adds instrumentation to the `render` methods in Sinatra::Base
