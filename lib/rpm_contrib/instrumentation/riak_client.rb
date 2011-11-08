@@ -2,7 +2,7 @@ DependencyDetection.defer do
   @name = :riak_client
 
   depends_on do
-    defined?(::Riak) and not NewRelic::Control.instance['disable_riak_client_instrumentation']
+    defined?(::Riak) and not NewRelic::Control.instance['disable_riak_client']
   end
 
   executes do
