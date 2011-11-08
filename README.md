@@ -266,7 +266,8 @@ we'll be happy to help you work through it.
   files will be loaded when the RPM agent is initialized.
 * Add samplers to `lib/rpm_contrib/samplers`.  These classes are
   installed automatically when the RPM agent is initialized.
-* Add tests.  
+* Add tests.
+* Update README.md
 * Commit, do not mess with the Rakefile, version, or history.  (if you
   want to have your own version, that is fine but bump version in a
   commit by itself I can ignore when I pull)
