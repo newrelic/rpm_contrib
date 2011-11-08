@@ -6,6 +6,7 @@
   Community Contributed Bug Fixes
   - MongoDB instrumentation (Kenn Ejima)
   - Yajl instrumentation (Chris Griego)
+  - UltraSphinx instrumentation (Jonathan Rudenberg)
   Renamed ActiveMQ instrumentation to ActiveMessaging (W. Andrew Loe III)
 
 * Version 2.1.5
