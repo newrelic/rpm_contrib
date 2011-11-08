@@ -88,6 +88,12 @@ The gem will instrument ElasticSearch::Client. The metrics should show up in the
 
 You can disable it with `disable_elastic_search_instrumentation` in your newrelic.yml file.
 
+## KyotoTycoon
+
+The gem will instrument KyotoTycoon.
+
+You can disable it with `disable_kyototycoon` in your newrelic.yml file.
+
 ### Paperclip
 
 No special configuration required for Paperclip visibility.  
@@ -122,6 +128,13 @@ This adds instrumentation to the `render` methods in Sinatra::Base
 
 You can disable it with `disable_sinatra_template` in your newrelic.yml file.
 
+### ThinkingSphinx instrumentation
+
+This adds instrumentation to the `initialize` and `results` method of ThinkingSphinx::Search
+
+You can disable it with `disable_thinking_sphinx` in your newrelic.yml file.
+
+
 ### Typhoeus instrumentation
 
 This adds instrumentation to the Typhoeus::Request class for 'GET' requests
@@ -133,12 +146,6 @@ You can disable it with `disable_typhoeus` in your newrelic.yml file.
 This adds basic instrumentation to the `run` and `results` method of Ultrasphinx::Search
 
 You can disable it with `disable_ultrasphinx` in your newrelic.yml file.
-
-### Thinking Sphinx instrumentation
-
-This adds instrumentation to the `initialize` and `results` method of ThinkingSphinx::Search
-
-You can disable it with `disable_thinking_sphinx` in your newrelic.yml file.
 
 ### Workling
 
