@@ -26,6 +26,7 @@ begin
     gem.add_dependency 'newrelic_rpm', '>=3.1.1'
     gem.version = version
     gem.files = FileList['LICENSE', 'README*', 'lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a
+    gem.files.exclude *File.read(File.join(File.dirname(__FILE__), '.gitignore')).split
     gem.rdoc_options <<
       "--line-numbers" <<
       "--inline-source" <<
