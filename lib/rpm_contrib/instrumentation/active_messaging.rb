@@ -6,7 +6,8 @@ DependencyDetection.defer do
   @name = :active_messaging
   
   depends_on do
-    defined?(::ActiveMessaging::Processor) && !NewRelic::Control.instance['disable_active_messaging']
+    defined?(::ActiveMessaging::Processor) && !NewRelic::Control.instance['disable_active_messaging'] &&
+      !NewRelic::Control.instance['disable_active_mq']
   end
   
   executes do
