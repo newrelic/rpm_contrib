@@ -1,16 +1,16 @@
-# == ActiveMQ Instrumentation ==
+# == ActiveMessaging Instrumentation ==
 # Robert R. Meyer
 # Blue-Dog-Archolite @ GitHub
 
 DependencyDetection.defer do
-  @name = :active_mq
+  @name = :active_messaging
   
   depends_on do
-    defined?(::ActiveMessaging::Processor) && !NewRelic::Control.instance['disable_active_mq']
+    defined?(::ActiveMessaging::Processor) && !NewRelic::Control.instance['disable_active_messaging']
   end
   
   executes do
-    NewRelic::Agent.logger.debug 'Installing ActiveMQ instrumentation'
+    NewRelic::Agent.logger.debug 'Installing ActiveMessaging instrumentation'
   end
 
   executes do

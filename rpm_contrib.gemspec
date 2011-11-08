@@ -30,7 +30,7 @@ the New Relic Ruby monitoring gem newrelic_rpm.
     "lib/rpm_contrib/detection.rb",
     "lib/rpm_contrib/detection/camping.rb",
     "lib/rpm_contrib/instrumentation.rb",
-    "lib/rpm_contrib/instrumentation/active_mq.rb",
+    "lib/rpm_contrib/instrumentation/active_messaging.rb",
     "lib/rpm_contrib/instrumentation/aws.rb",
     "lib/rpm_contrib/instrumentation/camping.rb",
     "lib/rpm_contrib/instrumentation/cassandra.rb",
