@@ -134,6 +134,12 @@ This adds basic instrumentation to the `run` and `results` method of Ultrasphinx
 
 You can disable it with `disable_ultrasphinx` in your newrelic.yml file.
 
+### Thinking Sphinx instrumentation
+
+This adds instrumentation to the `initialize` and `results` method of ThinkingSphinx::Search
+
+You can disable it with `disable_thinking_sphinx` in your newrelic.yml file.
+
 ### Workling
 
 This adds instrumentation to the Workling::Base and all children, for all defined public methods not inherited from the Workling::Base class
