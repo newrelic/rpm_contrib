@@ -1,3 +1,13 @@
+* Version 2.1.6
+  Community contributed instrumentation
+  - ThinkingSphinx instrumentation (W. Andrew Loe III)
+  - Riak instrumentation (Bryce Kerley)
+  - KyotoTycoon instrumentation (Keisuke Kawahara)
+  Community Contributed Bug Fixes
+  - MongoDB instrumentation (Kenn Ejima)
+  - Yajl instrumentation (Chris Griego)
+  Renamed ActiveMQ instrumentation to ActiveMessaging (W. Andrew Loe III)
+
 * Version 2.1.5
 
   Changed the resque detection so it does not depend on the load
@@ -10,7 +20,7 @@
   Converted instrumentation to install with DependencyDetection in the latest Agent
   Changed Resque instrumentation from a plugin back to method chaining
   Fixed several reported bugs related to resque
-  
+
 * Version 2.1.3
 
   Fixed typo in Resque instrumentation
@@ -21,7 +31,7 @@
   Add a manual shutdown to the Resque instrumentation to make sure data is saved and sent - thanks to Jade Rubick
 
 * Version 2.1.1
-  
+
   Fix namespacing problem with Resque
   Add instrumentation to Mongo::Cursor #refresh and #close - thanks to Chris Griego
 
@@ -97,7 +107,7 @@
   MongoDB instrumentation contributed by John Nunemaker
 
 * Version 1.0.2
- 
+
   Improved Camping support
 
 * Version 1.0.1
