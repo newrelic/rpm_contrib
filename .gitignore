@@ -13,10 +13,16 @@ tmtags
 ## VIM
 *.swp
 
+## CTAGS
+tags
+TAGS
+
 ## PROJECT::GENERAL
 coverage
 rdoc
 docs/
 pkg
+log
+Gemfile.lock
 
 ## PROJECT::SPECIFIC
