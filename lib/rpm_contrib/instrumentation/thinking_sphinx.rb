@@ -14,6 +14,7 @@ DependencyDetection.defer do
       include NewRelic::Agent::MethodTracer
 
       add_method_tracer :initialize
+      add_method_tracer :populate
       add_method_tracer :results
     end
   end
