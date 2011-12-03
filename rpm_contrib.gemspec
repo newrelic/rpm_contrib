@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
     "lib/rpm_contrib/instrumentation/kyototycoon.rb",
     "lib/rpm_contrib/instrumentation/mongo.rb",
     "lib/rpm_contrib/instrumentation/paperclip.rb",
+    "lib/rpm_contrib/instrumentation/picky.rb",
     "lib/rpm_contrib/instrumentation/redis.rb",
     "lib/rpm_contrib/instrumentation/resque.rb",
     "lib/rpm_contrib/instrumentation/riak_client.rb",
