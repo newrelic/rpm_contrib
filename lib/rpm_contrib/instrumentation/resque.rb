@@ -1,5 +1,8 @@
 require 'rpm_contrib/language_support'
 
+# call this now so it is memoized before potentially forking worker processes
+RPMContrib::LanguageSupport.can_fork?
+
 module Resque
   module Plugins
     module NewRelicInstrumentation
