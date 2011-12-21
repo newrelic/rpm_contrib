@@ -20,10 +20,10 @@ module RPMContrib::LanguageSupport
   private
 
   def test_forkability
-    Process.fork { exit! }
+    child = Process.fork { exit! }
     # calling wait here doesn't seem like it should necessary, but it seems to
     # resolve some weird edge cases with resque forking.
-    Process.wait
+    Process.wait child
     true
   rescue NotImplementedError
     false
