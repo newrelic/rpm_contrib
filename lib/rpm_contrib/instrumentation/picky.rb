@@ -18,7 +18,7 @@ DependencyDetection.defer do
   @name = :picky
 
   depends_on do
-    defined?(::Picky) && !NewRelic::Control.instance['disable_picky']
+    defined?(::Picky::Search) && !NewRelic::Control.instance['disable_picky']
   end
 
   executes do
