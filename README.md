@@ -100,6 +100,12 @@ No special configuration required for Paperclip visibility.
 
 You can disable it by setting `disable_paperclip` to true in your newrelic.yml file.
 
+### Picky
+
+The gem will instrument the [Picky semantic search engine](http://florianhanke.com/picky/) so it should be visible in transaction traces and the web transactions page.
+
+You can disable it with `disable_picky` in your newrelic.yml file.
+
 ### MongoDB
 
 Our instrumentation works on the underlying 'Mongo' library.  
