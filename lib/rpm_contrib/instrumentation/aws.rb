@@ -3,7 +3,7 @@ DependencyDetection.defer do
   @name = :aws
   
   depends_on do
-    defined?(::AWS::S3) && !NewRelic::Control.instance['disable_aws-s3']
+    defined?(::AWS::S3::Connection) && !NewRelic::Control.instance['disable_aws-s3']
   end
   
   executes do
