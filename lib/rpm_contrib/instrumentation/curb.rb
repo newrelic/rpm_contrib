@@ -11,8 +11,9 @@ DependencyDetection.defer do
   
   executes do
     ::Curl::Easy.class_eval do
+      URI_CLASS = defined?(::Addressable) ? ::Addressable::URI : URI
       def host
-        URI.parse(self.url).host
+        self.url.respond_to?(:host) ? self.url.host : URI_CLASS.parse(self.url).host
       end
 
       # TODO: http, http_delete, http_get, http_post, http_head, http_put
