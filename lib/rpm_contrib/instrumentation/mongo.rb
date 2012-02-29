@@ -11,7 +11,7 @@ DependencyDetection.defer do
   end  
 
   executes do
-    ::Mongo::Connection.class_eval do
+    ::Mongo::Logging.class_eval do
       include NewRelic::Agent::MethodTracer
 
       def instrument_with_newrelic_trace(name, payload = {}, &blk)
@@ -32,17 +32,21 @@ DependencyDetection.defer do
       alias_method :instrument_without_newrelic_trace, :instrument
       alias_method :instrument, :instrument_with_newrelic_trace
     end
+    class Mongo::Collection; include Mongo::Logging; end
+    class Mongo::Connection; include Mongo::Logging; end
+    class Mongo::Cursor; include Mongo::Logging; end
 
+    # cursor refresh is not currently instrumented in mongo driver, so not picked up by above - have to add our own here
     ::Mongo::Cursor.class_eval do
       include NewRelic::Agent::MethodTracer
 
-      def refresh_with_newrelic_trace
+      def send_get_more_with_newrelic_trace
         trace_execution_scoped("Database/#{collection.name}/refresh") do
-          refresh_without_newrelic_trace
+          send_get_more_without_newrelic_trace
         end
       end
-      alias_method :refresh_without_newrelic_trace, :refresh
-      alias_method :refresh, :refresh_with_newrelic_trace
+      alias_method :send_get_more_without_newrelic_trace, :send_get_more
+      alias_method :send_get_more, :send_get_more_with_newrelic_trace
       add_method_tracer :close, 'Database/#{collection.name}/close'
     end
   end
