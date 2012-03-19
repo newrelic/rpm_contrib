@@ -1,3 +1,8 @@
+* Version 2.1.8
+  - Removed redis instrumenation in favor of https://github.com/evanphx/newrelic-redis
+  - [FIX] adding check for aws-sdk (Tom Caspy)
+  - Improved Mongo instrumenation from pull request #16 titanous/mongoid-instrumentation
+
 * Version 2.1.7
 
   Community contributed instrumentation
