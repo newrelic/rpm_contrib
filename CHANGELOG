@@ -1,12 +1,12 @@
 * Version 2.1.7
 
-Community contributed instrumentation
-- ThinkingSphinx instrumentation improvement (Martin Sarsale)
-- Picky search engine instrumentation (Niko Dittmann)
-Community Contributed Bug Fixes
-- Fix instrumentation injection for ActiveMessaging (W. Andrew Loe III)
-Other
-- Improvements to resque instrumentation detection of if its in a forking ruby implementation
+  Community contributed instrumentation
+  - ThinkingSphinx instrumentation improvement (Martin Sarsale)
+  - Picky search engine instrumentation (Niko Dittmann)
+  Community Contributed Bug Fixes
+  - Fix instrumentation injection for ActiveMessaging (W. Andrew Loe III)
+  Other
+  - Improvements to resque instrumentation detection of if its in a forking ruby implementation
 
 * Version 2.1.6
 
