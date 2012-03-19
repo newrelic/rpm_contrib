@@ -3,6 +3,29 @@
 The `rpm_contrib` gem contains instrumentation for the New Relic RPM agent
 contributed by the community of RPM users.  It requires the RPM Agent to run.
 
+## Deprecation of RPM Contrib
+
+Over the next several months we are planning to phase out the rpm_contrib gem.
+We plan to migrate the existing instrumentation into separate projects that
+instrument indivdual libraries or frameworks.  We see this as having a number of
+advantages for newrelic users.  We will provide a list of recommended
+instrumentation projects.
+
+### Removal of Redis Instrumenation
+
+As of version 2.1.8 Redis instrumentation has been removed from rpm_contrib.
+Please use Evan Phoenix's `newrelic-redis` gem instead.
+https://github.com/evanphx/newrelic-redis
+
+###  Request for Maintainers
+
+If you're interested in maintaining instrumentation for a specific
+library/framework, please let us know.  We'd love to work with you and promote
+your project.  -The New Relic Ruby Agent Team
+
+
+## Getting Started
+
 To use the rpm_contrib gem, install the `rpm_contrib` gem from rubygems.org.
 It will also install the required version of the `newrelic_rpm` gem if it's not
 already installed.
@@ -23,9 +46,6 @@ require the rpm_contrib gem:
     require 'rubygems'
     require 'rpm_contrib'
 
-When you load the rpm_contrib gem, the `newrelic_rpm` gem will also be
-initialized.  No need for a separate require statement for `newrelic_rpm`. 
-
 In non-Rails frameworks, it's important that the New Relic Agent gets
 loaded as late as possible, or that the final initialization hook is called 
 after all other frameworks have loaded:
@@ -42,6 +62,7 @@ fix the auto-detection logic.
 
 If this does not help then set the `log_level` to `debug` in the `newrelic.yml` file
 and examine the `newrelic_agent.log` file for errors after restarting your app.
+
 
 ## Supported Frameworks
 
@@ -122,11 +143,10 @@ To disable resque, set 'disable_resque' to true in your newrelic.yml file.
 
 ### Redis
 
-Redis instrumentation will record operations as well as `allWeb` and `allOther`
-summary metrics under the `Database/Redis` metric namespace. This instrumentation
-supports Redis versions 1.x and 2.x. 
+Redis instrumentation has been removed from rpm_contrib.
 
-To disable Redis instrumentation, set 'disable_redis' to true in your newrelic.yml file.
+Please use Evan Phoenix's `newrelic-redis` gem instead.
+https://github.com/evanphx/newrelic-redis
 
 ### Riak
 
