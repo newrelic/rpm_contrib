@@ -103,13 +103,13 @@ The gem will instrument both Curl::Easy and Curl::Multi - they should show up si
 
 You can disable it with `disable_curb` in your newrelic.yml file.
 
-## Elastic Search
+### Elastic Search
 
 The gem will instrument ElasticSearch::Client. The metrics should show up in the UI
 
 You can disable it with `disable_elastic_search_instrumentation` in your newrelic.yml file.
 
-## KyotoTycoon
+### KyotoTycoon
 
 The gem will instrument KyotoTycoon.
 
