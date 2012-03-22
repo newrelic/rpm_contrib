@@ -11,7 +11,8 @@ DependencyDetection.defer do
   end
 
   executes do
-    ::Ripple::Callbacks::InstanceMethods.class_eval do
+    (defined?(::Ripple::Callbacks::InstanceMethods) ? 
+      ::Ripple::Callbacks::InstanceMethods : ::Ripple::Callbacks).class_eval do
       add_method_tracer :valid?, 'Database/Riak/Ripple/valid?'
     end
 
@@ -20,11 +21,12 @@ DependencyDetection.defer do
       add_method_tracer :destroy_all, 'Database/Riak/Ripple/destroy_all'
     end
 
-    ::Ripple::Document::Persistence::InstanceMethods.class_eval do
+
+    (defined?(::Ripple::Document::Persistence::InstanceMethods) ? 
+      ::Ripple::Document::Persistence::InstanceMethods : ::Ripple::Document::Persistence).class_eval do
       add_method_tracer :really_save, 'Database/Riak/Ripple/really_save'
       add_method_tracer :reload, 'Database/Riak/Ripple/reload'
-      add_method_tracer :delete, 'Database/Riak/Ripple/delete'
-      add_method_tracer :destroy, 'Database/Riak/Ripple/destroy'
+      add_method_tracer :destroy!, 'Database/Riak/Ripple/destroy'
       add_method_tracer :update_attribute, 'Database/Riak/Ripple/update_attribute'
       add_method_tracer :update_attributes, 'Database/Riak/Ripple/update_attributes'
     end
