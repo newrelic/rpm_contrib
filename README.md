@@ -23,6 +23,23 @@ If you're interested in maintaining instrumentation for a specific
 library/framework, please let us know.  We'd love to work with you and promote
 your project.  -The New Relic Ruby Agent Team
 
+### New Relic Ruby Agent Plugins
+
+Here is a list of instrumenation projects for various Ruby libraries:
+
+#### Redis
+
+As of version 2.1.8 Redis instrumentation has been removed from rpm_contrib.
+Please use Evan Phoenix's `newrelic-redis` gem instead.
+
+https://github.com/evanphx/newrelic-redis
+
+#### Faraday
+
+Instrumentation for the HTTP client library Faraday is available at:
+
+https://github.com/Viximo/newrelic-faraday
+
 
 ## Getting Started
 
