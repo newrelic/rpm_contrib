@@ -23,9 +23,9 @@ If you're interested in maintaining instrumentation for a specific
 library/framework, please let us know.  We'd love to work with you and promote
 your project.  -The New Relic Ruby Agent Team
 
-### New Relic Ruby Agent Plugins
+## New Relic Ruby Agent Plugins
 
-Here is a list of instrumenation projects for various Ruby libraries:
+Here is a list of instrumentation projects for various Ruby libraries:
 
 #### Redis
 
