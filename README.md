@@ -165,20 +165,6 @@ Redis instrumentation has been removed from rpm_contrib.
 Please use Evan Phoenix's `newrelic-redis` gem instead.
 https://github.com/evanphx/newrelic-redis
 
-### Riak
-
-RiakClient is instrumented.  Its opereations are recorded under Database in the
-the response time graph.
-
-To disable Riak instrumentation, set 'disable_riak_client' to true in your newrelic.yml file.
-
-### Ripple
-
-Ripple is instrumented.  Its opereations are recorded under Database in the
-the response time graph.
-
-To disable Riak instrumentation, set 'disable_ripple' to true in your newrelic.yml file.
-
 ### Sinatra view instrumentation
 
 This adds instrumentation to the `render` methods in Sinatra::Base
