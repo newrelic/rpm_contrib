@@ -1,3 +1,7 @@
+* Version 2.1.9
+  - Removed riak-client and ripple instrumentation in favor of
+    https://github.com/alinpopa/newrelic-riak
+
 * Version 2.1.8
   - Removed redis instrumenation in favor of https://github.com/evanphx/newrelic-redis
   - [FIX] adding check for aws-sdk (Tom Caspy)
