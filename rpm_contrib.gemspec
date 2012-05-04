@@ -42,8 +42,6 @@ Gem::Specification.new do |s|
     "lib/rpm_contrib/instrumentation/paperclip.rb",
     "lib/rpm_contrib/instrumentation/picky.rb",
     "lib/rpm_contrib/instrumentation/resque.rb",
-    "lib/rpm_contrib/instrumentation/riak_client.rb",
-    "lib/rpm_contrib/instrumentation/ripple.rb",
     "lib/rpm_contrib/instrumentation/sinatra.rb",
     "lib/rpm_contrib/instrumentation/thinking_sphinx.rb",
     "lib/rpm_contrib/instrumentation/typhoeus.rb",
