@@ -36,9 +36,15 @@ https://github.com/Viximo/newrelic-faraday
 
 #### Riak-Client and Ripple
 
-Riak client and ripple instrumenatation are available at:
+Riak client and ripple instrumentation are available at:
 
 https://github.com/alinpopa/newrelic-riak
+
+#### Workling
+
+Workling instrumenatation can be found at:
+
+https://github.com/aurorafeint/newrelic-workling
 
 
 ## Getting Started
@@ -189,12 +195,6 @@ You can disable it with `disable_typhoeus` in your newrelic.yml file.
 This adds basic instrumentation to the `run` and `results` method of Ultrasphinx::Search
 
 You can disable it with `disable_ultrasphinx` in your newrelic.yml file.
-
-### Workling
-
-This adds instrumentation to the Workling::Base and all children, for all defined public methods not inherited from the Workling::Base class
-
-You can disable it with `disable_workling` in your newrelic.yml file.
 
 ### YAJL
 
