@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "rpm_contrib"
-  s.version = "2.1.9"
+  s.version = "2.1.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser", "Jon Guymon"]
-  s.date = "2012-05-04"
+  s.date = "2012-05-17"
   s.description = "Community contributed instrumentation for various frameworks based on\nthe New Relic Ruby monitoring gem newrelic_rpm.\n"
   s.email = "support@newrelic.com"
   s.extra_rdoc_files = [
@@ -46,7 +46,6 @@ Gem::Specification.new do |s|
     "lib/rpm_contrib/instrumentation/thinking_sphinx.rb",
     "lib/rpm_contrib/instrumentation/typhoeus.rb",
     "lib/rpm_contrib/instrumentation/ultrasphinx.rb",
-    "lib/rpm_contrib/instrumentation/workling.rb",
     "lib/rpm_contrib/instrumentation/yajl.rb",
     "lib/rpm_contrib/language_support.rb",
     "lib/rpm_contrib/samplers.rb",
@@ -54,8 +53,7 @@ Gem::Specification.new do |s|
     "test/schema.rb",
     "test/test_curb.rb",
     "test/test_picky.rb",
-    "test/test_resque.rb",
-    "test/test_workling.rb"
+    "test/test_resque.rb"
   ]
   s.homepage = "http://github.com/newrelic/rpm_contrib"
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Contributed Instrumentation for New Relic RPM", "-m", "README.md"]
