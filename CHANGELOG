@@ -1,3 +1,6 @@
+* Version 2.1.11
+  - Removed Resque instrumentation in favor of instrumentation in main agent https://github.com/newrelic/rpm (version 3.4.0)
+
 * Version 2.1.10
   - Removed Workling instrumentation in favor of https://github.com/aurorafeint/newrelic-workling
 

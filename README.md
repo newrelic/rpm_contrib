@@ -156,14 +156,6 @@ Our instrumentation works on the underlying 'Mongo' library.
 
 You can disable it by setting 'disable_mongodb' to true in your newrelic.yml file.
 
-### Resque
-
-To instrument jobs you no longer need to have your Job class inherit from Resque::Job or include 
-the Resque::Plugins::NewRelicInstrumentation module.  The module definition was left in for 
-backward compatibility.
-
-To disable resque, set 'disable_resque' to true in your newrelic.yml file.
-
 ### Redis
 
 Redis instrumentation has been removed from rpm_contrib.
