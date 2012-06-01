@@ -46,6 +46,12 @@ Workling instrumenatation can be found at:
 
 https://github.com/aurorafeint/newrelic-workling
 
+#### Sequel
+
+Instrumentation for the Sequel gem can be found at:
+
+https://github.com/realestate-com-au/newrelic-sequel
+
 
 ## Getting Started
 
