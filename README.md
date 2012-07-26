@@ -28,6 +28,15 @@ Please use Evan Phoenix's `newrelic-redis` gem instead.
 
 https://github.com/evanphx/newrelic-redis
 
+#### Mongoid 3 / Moped
+
+Instrumentation for Mongoid 3 / Moped:
+
+https://github.com/stevebartholomew/newrelic_moped
+
+#### Faraday
+
+
 #### Faraday
 
 Instrumentation for the HTTP client library Faraday is available at:
