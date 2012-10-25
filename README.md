@@ -61,6 +61,12 @@ Instrumentation for the Sequel gem can be found at:
 
 https://github.com/realestate-com-au/newrelic-sequel
 
+#### Excon
+
+Instrumentation for the Excon gem can be found at:
+
+https://github.com/helle/newrelic-excon
+
 
 ## Getting Started
 
