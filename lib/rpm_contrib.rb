@@ -14,7 +14,7 @@ require 'rpm_contrib/samplers'
 
 if defined? Rails
   # Rails 3.x+
-  if Rails.respond_to?(:version) && Rails.version =~ /^3/
+  if Rails.respond_to?(:version) && Rails.version =~ /^(3|4)/
     module NewRelic
       class Railtie < Rails::Railtie
         initializer("rpm_contrib.start_plugin"){ NewRelic::Control.instance.init_plugin }
