@@ -2,7 +2,7 @@ DependencyDetection.defer do
   @name = :mongoid
 
   depends_on do
-    defined?(::Mongoid) and not NewRelic::Control.instance['disable_mongoid']
+    defined?(::Mongoid) && Mongoid::VERSION.to_i == 2 && !NewRelic::Control.instance['disable_mongoid']
   end
 
   executes do
