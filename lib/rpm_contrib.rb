@@ -14,7 +14,7 @@ require 'rpm_contrib/samplers'
 
 if defined? Rails
   # Rails 3.x+
-  if Rails.respond_to?(:version) && Rails.version =~ /^(3|4)/
+  if Rails.respond_to?(:version) && Rails.version.to_s =~ /^(3|4)/
     module NewRelic
       class Railtie < Rails::Railtie
         initializer("rpm_contrib.start_plugin"){ NewRelic::Control.instance.init_plugin }
@@ -27,10 +27,9 @@ if defined? Rails
     raise "The rpm_contrib gem supports Rails 2.2+ only."
   end
 else
-  # If not running Rails, it is important that you load the contrib gem as late 
-  # as possible so the agent initializes after everything else.  Either that 
+  # If not running Rails, it is important that you load the contrib gem as late
+  # as possible so the agent initializes after everything else.  Either that
   # or make the following call yourself at the end of your startup sequence
   # (it is idempotent).
-  NewRelic::Control.instance.init_plugin 
+  NewRelic::Control.instance.init_plugin
 end
-
