@@ -34,6 +34,10 @@ Instrumentation for Mongoid 3 / Moped:
 
 https://github.com/stevebartholomew/newrelic_moped
 
+#### Mongoid 2 / Mongo:
+
+https://github.com/raphaelcm/newrelic_mongo
+
 #### Faraday
 
 
