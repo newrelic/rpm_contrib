@@ -71,6 +71,11 @@ Instrumentation for the Excon gem can be found at:
 
 https://github.com/helle/newrelic-excon
 
+#### Typhoeus
+
+Instrumentation for the Typhoeus gem can be found at:
+
+https://github.com/sportngin/newrelic-typhoeus
 
 ## Getting Started
 
