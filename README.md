@@ -18,7 +18,9 @@ library/framework, please let us know.  We'd love to work with you and promote
 your project.  -The New Relic Ruby Agent Team
 
 ## extends_newrelic_rpm
-We've started tracking gems that extend the New Relic Ruby agent via a git repository at http://github.com/newrelic/extends_newrelic_rpm. Check that out for a longer list of projects if you don't find what you need listed directly here.
+We've started tracking gems that extend the New Relic Ruby agent via a git
+repository at http://github.com/newrelic/extends_newrelic_rpm. Check that out for
+a longer list of projects if you don't find what you need listed directly here.
 
 ## New Relic Ruby Agent Plugins (Seperate Projects)
 
