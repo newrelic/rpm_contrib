@@ -17,6 +17,9 @@ If you're interested in maintaining instrumentation for a specific
 library/framework, please let us know.  We'd love to work with you and promote
 your project.  -The New Relic Ruby Agent Team
 
+## extends_newrelic_rpm
+We've started tracking gems that extend the New Relic Ruby agent via a git repository at http://github.com/newrelic/extends_newrelic_rpm. Check that out for a longer list of projects if you don't find what you need listed directly here.
+
 ## New Relic Ruby Agent Plugins (Seperate Projects)
 
 Here is a list of instrumentation projects for various Ruby libraries:
@@ -40,9 +43,6 @@ https://github.com/raphaelcm/newrelic_mongo
 
 #### Faraday
 
-
-#### Faraday
-
 Instrumentation for the HTTP client library Faraday is available at:
 
 https://github.com/Viximo/newrelic-faraday
@@ -61,7 +61,8 @@ https://github.com/aurorafeint/newrelic-workling
 
 #### Sequel
 
-Instrumentation for the Sequel gem can be found at:
+`newrelic_rpm` version 3.6.2 supports Sequel directly.
+Older agent versions can use the Sequel gem found at:
 
 https://github.com/realestate-com-au/newrelic-sequel
 
