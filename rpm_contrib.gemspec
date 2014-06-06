@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "rpm_contrib"
-  s.version = "2.1.11"
+  s.version = "2.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Bill Kayser", "Jon Guymon"]
+  s.authors = ["Bill Kayser", "Jon Guymon", "Jason Clark"]
   s.date = "2012-05-25"
-  s.description = "Community contributed instrumentation for various frameworks based on\nthe New Relic Ruby monitoring gem newrelic_rpm.\n"
+  s.description = "Deprecated community contributed instrumentation for various frameworks based on New Relic's Ruby monitoring gem newrelic_rpm.\n"
   s.email = "support@newrelic.com"
   s.extra_rdoc_files = [
     "CHANGELOG",
@@ -58,6 +58,13 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
   s.summary = "Contributed Instrumentation for New Relic RPM"
+  s.post_install_message = <<-EOS
+*********************************************************************
+WARNING: rpm_contrib is deprecated. New Relic recommends moving to
+gems listed at https://github.com/newrelic/extends_newrelic_rpm for
+further instrumentation. :thanks:
+*********************************************************************
+EOS
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
