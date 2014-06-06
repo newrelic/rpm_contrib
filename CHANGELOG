@@ -1,3 +1,7 @@
+* Version 2.2.0
+  - Final version of rpm_contrib, with post-install deprecation message
+  - Use Addressable::URI from Curb instrumentation (Amir Yalon)
+
 * Version 2.1.11
   - Removed Resque instrumentation in favor of instrumentation in main agent https://github.com/newrelic/rpm (version 3.4.0)
 
